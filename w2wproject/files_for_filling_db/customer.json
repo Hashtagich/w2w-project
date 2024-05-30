@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Марина",
+    "surname": "Демидова",
+    "patronymic": "Иванова",
+    "email": "first@example.com",
+    "phone": "+78005553535",
+    "gender": "woman",
+    "status": "Пользователь",
+    "tariff": "Базовый"
+  },
+  {
+    "name": "Иван",
+    "surname": "Шмелёв",
+    "patronymic": "Петров",
+    "email": "second@example.com",
+    "phone": "+78005553534",
+    "gender": "man",
+    "status": "Пользователь",
+    "tariff": "Базовый"
+  }
+]
