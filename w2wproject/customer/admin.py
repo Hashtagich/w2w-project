@@ -15,12 +15,32 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(customer.Tariff)
 class TariffAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'description', 'duration')
+    list_display = ('id', 'name', 'price', 'description', 'duration')
 
 
 @admin.register(customer.Role)
 class RoleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'sort', 'is_active')
+    list_display = ('id', 'name', 'sort', 'is_active')
+
+
+@admin.register(other.AverageCheck)
+class AverageCheckAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'sort', 'is_active')
+
+
+@admin.register(other.NumberSubscribers)
+class NumberSubscribersAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'sort', 'is_active')
+
+
+@admin.register(other.Interests)
+class InterestsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'sort', 'is_active')
+
+
+@admin.register(other.FAQ)
+class InterestsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'question', 'answer')
 
 # @admin.register(customer.Customer)
 # class ExhibitionAdmin(admin.ModelAdmin):

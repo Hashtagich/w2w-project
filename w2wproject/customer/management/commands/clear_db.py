@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from .command_for_customer import clear_role_db, clear_tariff_db, clear_customer_db
+from .command_for_other import clear_faq_db, clear_average_check_db, clear_number_subscribers_db, clear_interests_db
 
 
 class Command(BaseCommand):
@@ -23,6 +24,22 @@ class Command(BaseCommand):
         count = clear_tariff_db()
         self.stdout.write(self.style.SUCCESS(
             f'{count} records deleted from the database.\nЗаписи Tariff в количестве {count} шт. удалены из базы данных.'))
+
+        count = clear_faq_db()
+        self.stdout.write(self.style.SUCCESS(
+            f'{count} records deleted from the database.\nЗаписи FAQ в количестве {count} шт. удалены из базы данных.'))
+
+        count = clear_average_check_db()
+        self.stdout.write(self.style.SUCCESS(
+            f'{count} records deleted from the database.\nЗаписи Среднего чека в количестве {count} шт. удалены из базы данных.'))
+
+        count = clear_number_subscribers_db()
+        self.stdout.write(self.style.SUCCESS(
+            f'{count} records deleted from the database.\nЗаписи Количества подписчиков в количестве {count} шт. удалены из базы данных.'))
+
+        count = clear_interests_db()
+        self.stdout.write(self.style.SUCCESS(
+            f'{count} records deleted from the database.\nЗаписи Интересов в количестве {count} шт. удалены из базы данных.'))
 
         # End
         self.stdout.write(self.style.SUCCESS(

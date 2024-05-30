@@ -1,24 +1,11 @@
 from customer.models import customer
-import json
-
-
-# Support
-def get_json(name_json_file):
-    """Вспомогательная функция для открытия json файла и передачи его содержимого."""
-    with open(f"files_for_filling_db/{name_json_file}.json", "r", encoding='utf-8') as file:
-        result_data = json.load(file)
-        return result_data
+from .support_def import get_json, create_simple_db, clear_db
 
 
 # Create
 def create_role_db():
     """Функция для наполнения базы данных Роли пользователя данными из файла role.json"""
-    if not customer.Role.objects.count():
-        data = get_json(name_json_file='role')
-        for db in data:
-            customer.Role(
-                name=db['name']
-            ).save()
+    create_simple_db(name_model=customer.Role, name_json_file='role')
 
 
 def create_tariff_db():
@@ -51,13 +38,6 @@ def create_customer_db():
 
 
 # Delete
-def clear_db(name_model) -> int:
-    """Общая функция для удаления базы данных нужно только ввести название модели name_model в качестве аргумента."""
-    count = name_model.objects.count()
-    name_model.objects.all().delete()
-    return count
-
-
 def clear_role_db():
     """Функция для удаления базы данных Роли."""
     return clear_db(name_model=customer.Role)
