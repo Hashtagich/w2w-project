@@ -122,6 +122,29 @@ ___
 </details>
 
 ___
+
+## Запуск проекта
+### *Запускаем backend* 
+```bash
+cd w2w
+python -m venv venv
+source venv/bin/activate
+cd w2wproject 
+pip install -r requirements.txt
+py manage.py migrate
+py manage.py loaddata w2wproject/fixtures/data.json
+py manage.py runserver
+```
+### *Запускаем frontend* 
+```bash
+cd w2w
+cd frontend
+npm install
+npm start
+```
+___
+
+
 ### API
 
 ___

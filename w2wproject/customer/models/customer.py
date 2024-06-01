@@ -1,4 +1,20 @@
 from django.db import models
+from .other import Interest
+
+
+# from .social_network import SocialNetwork
+
+def get_image_path_customer(instance, filename):
+    """
+    Функция для прописывания пути сохранения изображений. Если не будет найдено последнего (ни одного) объекта,
+    то будет создана папка с id (окончанием) 0.
+    """
+    last_object = Customer.objects.last()
+
+    if last_object is not None:
+        return f'static/photos/customer-{last_object.id}/{filename}'
+    else:
+        return f'static/photos/customer-0/{filename}'
 
 
 class Customer(models.Model):
@@ -20,16 +36,22 @@ class Customer(models.Model):
     modifier = models.IntegerField("Модификатор", null=True, default=1)
     gender = models.CharField("Пол", max_length=10, choices=GENDER)
     status = models.ForeignKey("Role", on_delete=models.PROTECT, verbose_name="Роль")
-    tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, related_name='tariff')
+    tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф')
+
+    avatar_id = models.ImageField("Аватар", upload_to=get_image_path_customer, blank=True, null=True)
+
+    # link = models.ForeignKey(SocialNetwork, on_delete=models.CASCADE, verbose_name='Ссылка на соц сеть')
+
     datetime_create = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
 
-    # interests = models.ManyToManyField('Interests',
-    #                                    related_name='customer_Interests',
-    #                                    blank=True,
-    #                                    verbose_name='Интересы',
-    #                                    through='CustomerInterests'
-    #                                    )
+    interests = models.ManyToManyField(
+        Interest,
+        related_name='customer_interest',
+        blank=True,
+        verbose_name='Интересы',
+        through='CustomerInterest'
+    )
 
     def __str__(self):
         return f'{self.surname} {self.name} {self.patronymic} уровень {self.level}'
@@ -106,3 +128,37 @@ class Role(models.Model):
     class Meta:
         verbose_name = "Роль пользователя"
         verbose_name_plural = "Роли пользователей"
+
+
+class FotoCustomer(models.Model):
+    """Модель фотографии пользователя."""
+    foto = models.ImageField("Фотография", upload_to=get_image_path_customer, blank=True, null=True)
+    description = models.CharField("Описание фотографии", max_length=255, null=True, blank=True)
+    customer_id = models.ForeignKey(
+        Customer, models.PROTECT, 'customer_foto', verbose_name='ID пользователя'
+    )
+
+    class Meta:
+        verbose_name = 'Фотография пользователя'
+        verbose_name_plural = 'Фотографии пользователя'
+
+    def __str__(self):
+        return f'{self.description} ({self.pk})'
+
+
+class CustomerInterest(models.Model):
+    """Модель связи пользователя и интереса."""
+    customer_id = models.ForeignKey(
+        Customer, models.PROTECT, 'customers_interests', verbose_name='ID пользователя'
+    )
+    interest_id = models.ForeignKey(
+        Interest, models.PROTECT, 'interests', verbose_name='ID интереса'
+    )
+
+    class Meta:
+        verbose_name = 'Сводная таблица пользователь и интерес'
+        verbose_name_plural = 'Сводные таблицы пользователи и интересы'
+        ordering = ('-customer_id', 'interest_id',)
+
+    def __str__(self):
+        return f'({self.pk}) {self.customer_id}'
