@@ -33,7 +33,7 @@ class NumberSubscribers(models.Model):
         verbose_name_plural = "Кол-во подписчиков"
 
 
-class Interests(models.Model):
+class Interest(models.Model):
     """
     Модель интересов/тегов. Можно создавать сколько угодно объектов для дальнейшего выбора из списка
     в других моделях или формах. Активность означает отображение данного объекта в списке т.е.
