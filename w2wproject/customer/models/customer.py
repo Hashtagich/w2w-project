@@ -1,7 +1,6 @@
 from django.db import models
 
 from .other import Interest
-from .social_network import SocialNetwork
 
 
 def get_image_path_customer(instance, filename):
@@ -39,9 +38,6 @@ class Customer(models.Model):
     tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф')
 
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_customer, blank=True, null=True)
-    social_networks = models.ManyToManyField(SocialNetwork, verbose_name="Ссылки на соц сети")
-
-    # link = models.ForeignKey(SocialNetwork, on_delete=models.CASCADE, verbose_name='Ссылка на соц сеть')
 
     datetime_create = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
@@ -139,12 +135,12 @@ class FotoCustomer(models.Model):
         Customer, models.PROTECT, 'customer_foto', verbose_name='ID пользователя'
     )
 
+    def __str__(self):
+        return f'{self.description} ({self.pk})'
+
     class Meta:
         verbose_name = 'Фотография пользователя'
         verbose_name_plural = 'Фотографии пользователя'
-
-    def __str__(self):
-        return f'{self.description} ({self.pk})'
 
 
 class CustomerInterest(models.Model):
@@ -156,10 +152,10 @@ class CustomerInterest(models.Model):
         Interest, models.PROTECT, 'interests', verbose_name='ID интереса'
     )
 
-    class Meta:
-        verbose_name = 'Сводная таблица пользователь и интерес'
-        verbose_name_plural = 'Сводные таблицы пользователи и интересы'
-        ordering = ('-customer_id', 'interest_id',)
-
     def __str__(self):
         return f'({self.pk}) {self.customer_id}'
+
+    class Meta:
+        verbose_name = 'Сводная таблица пользователь и интерес'
+        verbose_name_plural = 'Сводная таблица пользователи и интересы'
+        ordering = ('-customer_id', 'interest_id',)

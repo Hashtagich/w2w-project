@@ -12,9 +12,14 @@ class CustomerFotoInline(TabularInline):
     fields = ('foto',)
 
 
-class SocialNetworkInline(TabularInline):
+class CustomerSocialNetwork(TabularInline):
     model = social_network.SocialNetwork
-    fields = ('name', 'link')
+    fields = ('name', 'link',)
+
+
+class ParticipantInline(TabularInline):
+    model = customer.CustomerInterest
+    fields = ('interest_id',)
 
 
 ########
@@ -28,7 +33,9 @@ class CustomerAdmin(admin.ModelAdmin):
 
     inlines = (
         CustomerFotoInline,
-    )  # TODO: Решить проблему с отображением при добавлении в картеж SocialNetworkInline. Ошибка: <class 'customer.admin.SocialNetworkInline'>: (admin.E202) 'customer.SocialNetwork' has no ForeignKey to 'customer.Customer'.
+        CustomerSocialNetwork,
+        ParticipantInline
+    )
 
 
 @admin.register(customer.Tariff)
