@@ -46,7 +46,7 @@ class TaskInline(TabularInline):
     model = collaboration.Task
     # readonly_fields = ('datetime_create',)
     fields = (
-        'name', 'status', 'description',
+        'name', 'status', 'description', 'author',
         'datetime_start', 'datetime_completion',
         'datetime_finish',
     )

@@ -30,8 +30,8 @@ class Brand(models.Model):
     status = models.CharField("Статус", max_length=50, choices=CHOICE_STATUS, default="new")
     author = models.ForeignKey(Customer, on_delete=models.PROTECT, verbose_name="Пользователь/автор")
     number_subscribers = models.ForeignKey(NumberSubscribers, on_delete=models.PROTECT,
-                                           verbose_name="Кол-во подписчиков")
-    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек')
+                                           verbose_name="Кол-во подписчиков", blank=True)
+    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек', blank=True)
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_brand, blank=True, null=True)
     value = models.CharField("Ценности бренда", max_length=256, null=True, blank=True)
     target_audience = models.TextField("Описание ЦА", null=True, blank=True)

@@ -2,6 +2,7 @@ from django.db import models
 from .other import NumberSubscribers, AverageCheck
 from .customer import Customer
 
+
 def get_image_path_collaboration(instance, filename):
     """
     Функция для прописывания пути сохранения изображений. Если не будет найдено последнего (ни одного) объекта,
@@ -30,8 +31,8 @@ class Collaboration(models.Model):
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_collaboration, blank=True, null=True)
     description = models.TextField("Описание коллаборации", null=True, blank=True)
     number_subscribers = models.ForeignKey(NumberSubscribers, on_delete=models.PROTECT,
-                                           verbose_name="Кол-во подписчиков")
-    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек')
+                                           verbose_name="Кол-во подписчиков", blank=True)
+    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек', blank=True)
     result = models.TextField("Результат коллаборации", null=True, blank=True)
 
     datetime_create = models.DateTimeField(auto_now_add=True)
@@ -76,7 +77,7 @@ class Task(models.Model):
     collaboration_id = models.ForeignKey(
         Collaboration, models.PROTECT, 'collaboration_task', verbose_name='Коллаборация'
     )
-    author = models.ForeignKey(Customer, on_delete=models.PROTECT, verbose_name="Пользователь/автор")
+    author = models.ForeignKey(Customer, on_delete=models.PROTECT, verbose_name="Пользователь/автор", blank=True)
 
     datetime_start = models.DateTimeField("Дата начала задачи/этапа", blank=True)
     datetime_completion = models.DateTimeField("Дата когда задача/этап должна быть выполнена", blank=True)

@@ -23,17 +23,35 @@ class Customer(models.Model):
         ('woman', 'Женщина'),
     ]
 
+    ZODIAC = [
+        ('Aries', 'Овен'),
+        ('Taurus', 'Телец'),
+        ('Gemini', 'Близнецы'),
+        ('Cancer', 'Рак'),
+        ('Leo', 'Лев'),
+        ('Virgo', 'Дева'),
+        ('Libra', 'Весы'),
+        ('Scorpio', 'Скорпион'),
+        ('Ophiuchus', 'Змееносец'),
+        ('Sagittarius', 'Стрелец'),
+        ('Capricorn', 'Козерог'),
+        ('Aquarius', 'Водолей'),
+        ('Pisces', 'Рыбы'),
+    ]
+
     name = models.CharField("Имя пользователя", max_length=30, null=True)
     surname = models.CharField("Фамилия пользователя", max_length=30, null=True)
     patronymic = models.CharField("Отчество пользователя", max_length=30, null=True, blank=True)
     nickname = models.CharField("Никнейм пользователя", max_length=30, null=True, blank=True)
+    date_birth = models.DateField("Дата рождения", blank=True)
+    zodiac = models.CharField("Знак зодиака", max_length=20, choices=ZODIAC, blank=True)
     email = models.EmailField("Эл.почта пользователя", max_length=100, null=True)
-    phone = models.CharField("Контактный телефон", max_length=12, null=True)
+    phone = models.CharField("Контактный телефон", max_length=12, null=True, blank=True)
     balance = models.IntegerField("Баланс", null=True, default=1)
     experience = models.IntegerField("Опыт", null=True, default=1)
     level = models.IntegerField("Уровень", null=True, default=1)
     modifier = models.IntegerField("Модификатор", null=True, default=1)
-    gender = models.CharField("Пол", max_length=10, choices=GENDER)
+    gender = models.CharField("Пол", max_length=10, choices=GENDER, blank=True)
     status = models.ForeignKey("Role", on_delete=models.PROTECT, verbose_name="Роль")
     tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф')
 
