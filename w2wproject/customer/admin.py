@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 
-from .models import customer, other, social_network, brand  # , collaboration, match,
+from .models import customer, other, social_network, brand, collaboration  # , match,
 
 
 #########
@@ -14,6 +14,11 @@ class CustomerFotoInline(TabularInline):
 
 class BrandFotoInline(TabularInline):
     model = brand.FotoBrand
+    fields = ('foto',)
+
+
+class CollaborationFotoInline(TabularInline):
+    model = collaboration.FotoCollaboration
     fields = ('foto',)
 
 
@@ -30,6 +35,16 @@ class InterestInline(TabularInline):
 class CategoryInline(TabularInline):
     model = brand.BrandCategory
     fields = ('category_id',)
+
+
+class TaskInline(TabularInline):
+    model = collaboration.Task
+    # readonly_fields = ('datetime_create',)
+    fields = (
+        'name', 'status', 'description',
+        'datetime_start', 'datetime_completion',
+        'datetime_finish',
+    )
 
 
 ########
@@ -71,6 +86,16 @@ class BrandAdmin(admin.ModelAdmin):
 @admin.register(brand.Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'sort', 'is_active')
+
+
+@admin.register(collaboration.Collaboration)
+class CollaborationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'description', 'number_subscribers', 'average_check', 'avatar_id', 'result')
+
+    inlines = (
+        CollaborationFotoInline,
+        TaskInline,
+    )
 
 
 @admin.register(other.AverageCheck)

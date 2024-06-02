@@ -24,7 +24,6 @@ class Brand(models.Model):
         ("accepted", 'модерация прошла успешно'),
         ("rejected", 'модерация прошла, информация не принята'),
     )
-    choices = CHOICE_STATUS
 
     name = models.CharField("Название бренда", max_length=30, null=True)
     status = models.CharField("Статус", max_length=50, choices=CHOICE_STATUS, default="new")
@@ -77,7 +76,7 @@ class FotoBrand(models.Model):
     """Модель фотографии бренда."""
     foto = models.ImageField("Фотография", upload_to=get_image_path_brand, blank=True, null=True)
     description = models.CharField("Описание фотографии", max_length=255, null=True, blank=True)
-    customer_id = models.ForeignKey(
+    brand_id = models.ForeignKey(
         Brand, models.PROTECT, 'brand_foto', verbose_name='ID бренда'
     )
 
