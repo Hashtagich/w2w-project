@@ -1,28 +1,34 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 
-from customer.models import customer, brand, collaboration, match, other, social_network
+from .models import customer, other, social_network  # , brand, collaboration, match,
 
 
+#########
 # INLINES
+#########
 class CustomerFotoInline(TabularInline):
     model = customer.FotoCustomer
     fields = ('foto',)
 
-# class SocialNetworkInline(TabularInline):
-#     model = social_network.SocialNetwork
-#     fields = ('name', 'link')
+
+class SocialNetworkInline(TabularInline):
+    model = social_network.SocialNetwork
+    fields = ('name', 'link')
 
 
+########
 # MODELS
-
+########
 @admin.register(customer.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'name', 'surname', 'patronymic', 'nickname', 'email', 'phone', 'balance', 'experience', 'level',
-        'modifier', 'gender', 'status', 'tariff')
+        'modifier', 'gender', 'status', 'tariff',)
 
-    inlines = (CustomerFotoInline,)
+    inlines = (
+        CustomerFotoInline,
+    )  # TODO: Решить проблему с отображением при добавлении в картеж SocialNetworkInline. Ошибка: <class 'customer.admin.SocialNetworkInline'>: (admin.E202) 'customer.SocialNetwork' has no ForeignKey to 'customer.Customer'.
 
 
 @admin.register(customer.Tariff)
@@ -63,6 +69,6 @@ class NameSocialNetworkAdmin(admin.ModelAdmin):
 @admin.register(social_network.SocialNetwork)
 class SocialNetworkAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'link')
-# @admin.register(customer.Customer)
-# class ExhibitionAdmin(admin.ModelAdmin):
+
+# Для копирования
 #     list_display = ('id', 'name', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')

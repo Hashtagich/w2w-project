@@ -1,8 +1,8 @@
 from django.db import models
+
 from .other import Interest
+from .social_network import SocialNetwork
 
-
-# from .social_network import SocialNetwork
 
 def get_image_path_customer(instance, filename):
     """
@@ -39,6 +39,7 @@ class Customer(models.Model):
     tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф')
 
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_customer, blank=True, null=True)
+    social_networks = models.ManyToManyField(SocialNetwork, verbose_name="Ссылки на соц сети")
 
     # link = models.ForeignKey(SocialNetwork, on_delete=models.CASCADE, verbose_name='Ссылка на соц сеть')
 

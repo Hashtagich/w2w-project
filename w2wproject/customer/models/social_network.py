@@ -26,8 +26,11 @@ class SocialNetwork(models.Model):
     """
     name = models.ForeignKey(NameSocialNetwork, models.RESTRICT, 'socialnetwork_name',
                              verbose_name='Название соц сети')
-    link = models.CharField("Ссылка на соц сеть/месседжер/сайт", max_length=60, null=False)
+    link = models.URLField("Ссылка на соц сеть/месседжер/сайт", max_length=200, null=False)
     datetime_create = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name.name}: {self.link}'
 
     class Meta:
         verbose_name = "Ссылка на соц сеть"
