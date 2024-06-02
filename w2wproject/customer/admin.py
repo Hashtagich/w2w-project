@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 
-from .models import customer, other, social_network  # , brand, collaboration, match,
+from .models import customer, other, social_network, brand  # , collaboration, match,
 
 
 #########
@@ -12,14 +12,24 @@ class CustomerFotoInline(TabularInline):
     fields = ('foto',)
 
 
-class CustomerSocialNetwork(TabularInline):
+class BrandFotoInline(TabularInline):
+    model = brand.FotoBrand
+    fields = ('foto',)
+
+
+class CustomerSocialNetworkInline(TabularInline):
     model = social_network.SocialNetwork
     fields = ('name', 'link',)
 
 
-class ParticipantInline(TabularInline):
+class InterestInline(TabularInline):
     model = customer.CustomerInterest
     fields = ('interest_id',)
+
+
+class CategoryInline(TabularInline):
+    model = brand.BrandCategory
+    fields = ('category_id',)
 
 
 ########
@@ -33,8 +43,8 @@ class CustomerAdmin(admin.ModelAdmin):
 
     inlines = (
         CustomerFotoInline,
-        CustomerSocialNetwork,
-        ParticipantInline
+        CustomerSocialNetworkInline,
+        InterestInline
     )
 
 
@@ -45,6 +55,21 @@ class TariffAdmin(admin.ModelAdmin):
 
 @admin.register(customer.Role)
 class RoleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'sort', 'is_active')
+
+
+@admin.register(brand.Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'status', 'number_subscribers', 'average_check', 'avatar_id')
+
+    inlines = (
+        BrandFotoInline,
+        CategoryInline,
+    )
+
+
+@admin.register(brand.Category)
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'sort', 'is_active')
 
 
