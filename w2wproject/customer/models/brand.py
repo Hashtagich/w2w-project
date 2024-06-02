@@ -1,6 +1,7 @@
 from django.db import models
 from .other import NumberSubscribers, AverageCheck
 from .customer import Customer
+from .collaboration import Collaboration
 
 
 def get_image_path_brand(instance, filename):
@@ -45,6 +46,14 @@ class Brand(models.Model):
         blank=True,
         verbose_name='Категории',
         through='BrandCategory'
+    )
+
+    collaboration = models.ManyToManyField(
+        'Collaboration',
+        related_name='brand_collaborations',
+        blank=True,
+        verbose_name='Коллаборации',
+        through='BrandCollaboration'
     )
 
     def __str__(self):
@@ -104,3 +113,21 @@ class BrandCategory(models.Model):
         verbose_name = 'Сводная таблица бренд и категория'
         verbose_name_plural = 'Сводная таблица бренды и категории'
         ordering = ('-brand_id', 'category_id',)
+
+
+class BrandCollaboration(models.Model):
+    """Модель связи бренд и коллаборации."""
+    brand_id = models.ForeignKey(
+        Brand, models.PROTECT, 'brands_collaborations', verbose_name='ID бренда'
+    )
+    collaboration_id = models.ForeignKey(
+        Collaboration, models.PROTECT, 'collaborations', verbose_name='Коллаборация'
+    )
+
+    def __str__(self):
+        return f'({self.pk}) {self.brand_id}'
+
+    class Meta:
+        verbose_name = 'Сводная таблица бренд и коллаборации'
+        verbose_name_plural = 'Сводная таблица бренды и коллаборации'
+        ordering = ('-brand_id', 'collaboration_id',)

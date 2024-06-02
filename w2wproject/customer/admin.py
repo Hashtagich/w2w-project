@@ -32,6 +32,11 @@ class InterestInline(TabularInline):
     fields = ('interest_id',)
 
 
+class BrandInline(TabularInline):
+    model = brand.BrandCollaboration
+    fields = ('brand_id',)
+
+
 class CategoryInline(TabularInline):
     model = brand.BrandCategory
     fields = ('category_id',)
@@ -93,8 +98,17 @@ class CollaborationAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'number_subscribers', 'average_check', 'avatar_id', 'result')
 
     inlines = (
+        BrandInline,
         CollaborationFotoInline,
         TaskInline,
+    )
+
+
+@admin.register(collaboration.Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'name', 'status', 'description',
+        'datetime_start', 'datetime_completion', 'datetime_finish'
     )
 
 

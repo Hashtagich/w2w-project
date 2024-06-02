@@ -1,6 +1,6 @@
 from django.db import models
 from .other import NumberSubscribers, AverageCheck
-
+from .customer import Customer
 
 def get_image_path_collaboration(instance, filename):
     """
@@ -72,13 +72,15 @@ class Task(models.Model):
     name = models.CharField("Название задачи/этапа", max_length=60, null=True, default="Этап/задача №1")
     status = models.CharField("Статус", max_length=50, choices=CHOICE_STATUS, default="new")
     description = models.TextField("Описание задачи/этапа", null=True, blank=True)
-    datetime_start = models.DateTimeField("Дата начала задачи/этапа", blank=True)
-    datetime_completion = models.DateTimeField("Дата когда задача/этап должны быть выполнена", blank=True)
-    collaboration_id = models.ForeignKey(
-        Collaboration, models.PROTECT, 'collaboration_task', verbose_name='ID коллаборации'
-    )
-    datetime_finish = models.DateTimeField("Дата окончания задачи/этапа", blank=True)
 
+    collaboration_id = models.ForeignKey(
+        Collaboration, models.PROTECT, 'collaboration_task', verbose_name='Коллаборация'
+    )
+    author = models.ForeignKey(Customer, on_delete=models.PROTECT, verbose_name="Пользователь/автор")
+
+    datetime_start = models.DateTimeField("Дата начала задачи/этапа", blank=True)
+    datetime_completion = models.DateTimeField("Дата когда задача/этап должна быть выполнена", blank=True)
+    datetime_finish = models.DateTimeField("Дата окончания задачи/этапа", blank=True)
     datetime_create = models.DateTimeField("Дата создания задачи/этапа", auto_now_add=True)
     objects = models.Manager()
 
