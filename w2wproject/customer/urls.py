@@ -14,7 +14,7 @@ from allauth.account.views import (
     EmailView,
 )
 
-from .views import profile_view, home_view, CustomRegisterView
+from .views import profile_view, home_view
 
 urlpatterns = [
     # Вход
@@ -47,5 +47,6 @@ urlpatterns = [
 
     path('profile/', profile_view, name='profile'),
     path('', home_view, name='home'),
-    path('api/auth/registration/', CustomRegisterView.as_view(), name='custom_register'),
 ]
+
+

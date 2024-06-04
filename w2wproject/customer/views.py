@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from dj_rest_auth.registration.views import RegisterView
-from .serializers import CustomRegisterSerializer
+from rest_framework import viewsets
+from .models.customer import Customer
+from .serializers import CustomerSerializer
+
 
 
 @login_required
@@ -13,6 +15,6 @@ def home_view(request):
 
 
 
-
-class CustomRegisterView(RegisterView):
-    serializer_class = CustomRegisterSerializer
+class CustomerViewSet(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
