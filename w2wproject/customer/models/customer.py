@@ -1,5 +1,20 @@
 from django.db import models
 
+from .other import Interest
+
+
+def get_image_path_customer(instance, filename):
+    """
+    Функция для прописывания пути сохранения изображений. Если не будет найдено последнего (ни одного) объекта,
+    то будет создана папка с id (окончанием) 0.
+    """
+    last_object = Customer.objects.last()
+
+    if last_object is not None:
+        return f'static/photos/customer-{last_object.id}/{filename}'
+    else:
+        return f'static/photos/customer-0/{filename}'
+
 
 class Customer(models.Model):
     """Модель пользователя."""
@@ -8,28 +23,50 @@ class Customer(models.Model):
         ('woman', 'Женщина'),
     ]
 
+    ZODIAC = [
+        ('Aries', 'Овен'),
+        ('Taurus', 'Телец'),
+        ('Gemini', 'Близнецы'),
+        ('Cancer', 'Рак'),
+        ('Leo', 'Лев'),
+        ('Virgo', 'Дева'),
+        ('Libra', 'Весы'),
+        ('Scorpio', 'Скорпион'),
+        ('Ophiuchus', 'Змееносец'),
+        ('Sagittarius', 'Стрелец'),
+        ('Capricorn', 'Козерог'),
+        ('Aquarius', 'Водолей'),
+        ('Pisces', 'Рыбы'),
+    ]
+
     name = models.CharField("Имя пользователя", max_length=30, null=True)
     surname = models.CharField("Фамилия пользователя", max_length=30, null=True)
     patronymic = models.CharField("Отчество пользователя", max_length=30, null=True, blank=True)
     nickname = models.CharField("Никнейм пользователя", max_length=30, null=True, blank=True)
+    date_birth = models.DateField("Дата рождения", blank=True)
+    zodiac = models.CharField("Знак зодиака", max_length=20, choices=ZODIAC, blank=True)
     email = models.EmailField("Эл.почта пользователя", max_length=100, null=True)
-    phone = models.CharField("Контактный телефон", max_length=12, null=True)
+    phone = models.CharField("Контактный телефон", max_length=12, null=True, blank=True)
     balance = models.IntegerField("Баланс", null=True, default=1)
     experience = models.IntegerField("Опыт", null=True, default=1)
     level = models.IntegerField("Уровень", null=True, default=1)
     modifier = models.IntegerField("Модификатор", null=True, default=1)
-    gender = models.CharField("Пол", max_length=10, choices=GENDER)
+    gender = models.CharField("Пол", max_length=10, choices=GENDER, blank=True)
     status = models.ForeignKey("Role", on_delete=models.PROTECT, verbose_name="Роль")
-    tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, related_name='tariff')
+    tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф')
+
+    avatar_id = models.ImageField("Аватар", upload_to=get_image_path_customer, blank=True, null=True)
+
     datetime_create = models.DateTimeField(auto_now_add=True)
     objects = models.Manager()
 
-    # interests = models.ManyToManyField('Interests',
-    #                                    related_name='customer_Interests',
-    #                                    blank=True,
-    #                                    verbose_name='Интересы',
-    #                                    through='CustomerInterests'
-    #                                    )
+    interests = models.ManyToManyField(
+        Interest,
+        related_name='customer_interest',
+        blank=True,
+        verbose_name='Интересы',
+        through='CustomerInterest'
+    )
 
     def __str__(self):
         return f'{self.surname} {self.name} {self.patronymic} уровень {self.level}'
@@ -106,3 +143,37 @@ class Role(models.Model):
     class Meta:
         verbose_name = "Роль пользователя"
         verbose_name_plural = "Роли пользователей"
+
+
+class FotoCustomer(models.Model):
+    """Модель фотографии пользователя."""
+    foto = models.ImageField("Фотография", upload_to=get_image_path_customer, blank=True, null=True)
+    description = models.CharField("Описание фотографии", max_length=255, null=True, blank=True)
+    customer_id = models.ForeignKey(
+        Customer, models.PROTECT, 'customer_foto', verbose_name='ID пользователя'
+    )
+
+    def __str__(self):
+        return f'{self.description} ({self.pk})'
+
+    class Meta:
+        verbose_name = 'Фотография пользователя'
+        verbose_name_plural = 'Фотографии пользователя'
+
+
+class CustomerInterest(models.Model):
+    """Модель связи пользователя и интереса."""
+    customer_id = models.ForeignKey(
+        Customer, models.PROTECT, 'customers_interests', verbose_name='ID пользователя'
+    )
+    interest_id = models.ForeignKey(
+        Interest, models.PROTECT, 'interests', verbose_name='ID интереса'
+    )
+
+    def __str__(self):
+        return f'({self.pk}) {self.customer_id}'
+
+    class Meta:
+        verbose_name = 'Сводная таблица пользователь и интерес'
+        verbose_name_plural = 'Сводная таблица пользователи и интересы'
+        ordering = ('-customer_id', 'interest_id',)

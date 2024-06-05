@@ -80,7 +80,7 @@ ___
 | 7  | Тимофеева Янина        | Графический дизайнер              | @YaninaIrkutsk       | https://www.behance.net/8e715f7e                  |
 | 8  | Ангапов Николай        | Графический дизайнер и веб-дизайн | @NikolayAng69        | https://www.behance.net/nick_angapov              |
 | 9  | Зайцев Антон           | Backend разработчик               | @BlackMarvel         | https://github.com/Hashtagich                     |
-| 10 | Царенко Иван           | Backend разработчик               | @mp3suuri            |                                                   |
+| 10 | Царенко Иван           | Backend разработчик               | @mp3suuri            | https://github.com/SwaGGa1337                     |
 | 11 | Александрова Екатерина | Backend разработчик               | @KateAlexandrova     | https://github.com/aliensen36                     |
 | 12 | Караханов Александр    | Backend разработчик               | @geographOne         | https://github.com/Gitgeograph                    |
 | 13 | Кочанова Мария         | Frontend разработчик              | @kochanovama         | https://github.com/MariaKochanova                 |
@@ -123,6 +123,29 @@ ___
 </details>
 
 ___
+
+## Запуск проекта
+### *Запускаем backend* 
+```bash
+cd w2w
+python -m venv venv
+source venv/bin/activate
+cd w2wproject 
+pip install -r requirements.txt
+py manage.py migrate
+py manage.py loaddata w2wproject/fixtures/data.json
+py manage.py runserver
+```
+### *Запускаем frontend* 
+```bash
+cd w2w
+cd frontend
+npm install
+npm start
+```
+___
+
+
 ### API
 
 ___

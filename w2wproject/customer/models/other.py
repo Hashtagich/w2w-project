@@ -12,6 +12,9 @@ class AverageCheck(models.Model):
     is_active = models.BooleanField("Активность", default=True)
     datetime_create = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.name} от {self.datetime_create.strftime("%d %B %Y %H:%M:%S")}'
+
     class Meta:
         verbose_name = "Средний чек бренда"
         verbose_name_plural = "Средние чеки бренда"
@@ -28,12 +31,15 @@ class NumberSubscribers(models.Model):
     is_active = models.BooleanField("Активность", default=True)
     datetime_create = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.name} от {self.datetime_create.strftime("%d %B %Y %H:%M:%S")}'
+
     class Meta:
         verbose_name = "Кол-во подписчиков"
         verbose_name_plural = "Кол-во подписчиков"
 
 
-class Interests(models.Model):
+class Interest(models.Model):
     """
     Модель интересов/тегов. Можно создавать сколько угодно объектов для дальнейшего выбора из списка
     в других моделях или формах. Активность означает отображение данного объекта в списке т.е.
@@ -43,6 +49,9 @@ class Interests(models.Model):
     sort = models.PositiveSmallIntegerField('Сортировка', null=True, blank=True)
     is_active = models.BooleanField("Активность", default=True)
     datetime_create = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} от {self.datetime_create.strftime("%d %B %Y %H:%M:%S")}'
 
     class Meta:
         verbose_name = "Интерес/тег"
@@ -54,9 +63,9 @@ class FAQ(models.Model):
     question = models.TextField(null=True, verbose_name="Вопрос")
     answer = models.TextField(null=True, verbose_name="Ответ")
 
+    def __str__(self):
+        return f'{self.question}'
+
     class Meta:
         verbose_name = "Часто задаваемые вопросы"
         verbose_name_plural = "Часто задаваемые вопросы"
-
-    def __str__(self):
-        return f'{self.question}'
