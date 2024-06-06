@@ -3,7 +3,12 @@
 
 const HomePage = () => {
     return (
-        <div></div>
+        <div>
+            {/* <Header/>
+            <Main/>
+            <Cards/>
+            <Footer/> */}
+        </div>
     )
 }
 

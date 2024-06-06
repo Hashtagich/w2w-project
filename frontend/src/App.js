@@ -5,11 +5,7 @@ import HomePage from './Pages/Home-page/index'
 function App() {
   return (
     <div className="App">
-    
-  
-  
    <HomePage/>
-
     </div>
   );
 }
