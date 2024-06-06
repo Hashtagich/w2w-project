@@ -1,0 +1,28 @@
+.header {
+    padding: 15px 9vw;
+
+    &-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-logo {
+        cursor: pointer;
+    }
+
+    &-navigation {
+        
+
+        a {
+            margin-right: 6vw;
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    &-auth {
+        cursor: pointer;
+    }
+}
