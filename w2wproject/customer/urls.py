@@ -13,3 +13,7 @@ urlpatterns = [
 urlpatterns += [
     path('faq/', other.FAQAPIList.as_view(), name='faq'),
 ]
+# Other (MagicBall)
+urlpatterns += [
+    path('magicball/', other.MagicBallAPIList.as_view(), name='magicball'),
+]

@@ -2,8 +2,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.utils import extend_schema_view, extend_schema
 from rest_framework import filters, generics
 
-from customer.models.other import FAQ
-from customer.serializers.api.other import FAQSerializer
+from customer.models.other import FAQ, MagicBall
+from customer.serializers.api.other import FAQSerializer, MagicBallSerializer
 
 
 @extend_schema_view(
@@ -15,3 +15,8 @@ class FAQAPIList(generics.ListAPIView):
     queryset = FAQ.objects.all()
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     ordering_fields = "__all__"
+
+
+class MagicBallAPIList(generics.ListAPIView):
+    queryset = MagicBall.objects.all()
+    serializer_class = MagicBallSerializer

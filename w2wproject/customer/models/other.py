@@ -69,3 +69,14 @@ class FAQ(models.Model):
     class Meta:
         verbose_name = "Часто задаваемые вопросы"
         verbose_name_plural = "Часто задаваемые вопросы"
+
+
+class MagicBall(models.Model):
+    prediction = models.CharField(null=False, blank=False)
+
+    def __str__(self):
+        return f'{self.prediction}'
+
+    class Meta:
+        verbose_prediction = "Предсказание"
+        verbose_name_plural = "Предсказания"
