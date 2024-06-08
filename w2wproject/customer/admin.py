@@ -3,11 +3,11 @@ from django.contrib.admin import TabularInline
 
 from .models import customer, other, social_network, brand, collaboration  # , match,
 
-
+admin.site.register(other.MagicBall)
 #########
 # INLINES
 #########
-class CustomerFotoInline(TabularInline):
+class CustomerFotoInline(TabularInline):    
     model = customer.FotoCustomer
     fields = ('foto',)
 

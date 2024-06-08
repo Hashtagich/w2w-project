@@ -15,5 +15,5 @@ urlpatterns += [
 ]
 # Other (MagicBall)
 urlpatterns += [
-    path('magicball/', other.MagicBallAPIList.as_view(), name='magicball'),
+    path('magicball/', other.MagicBallAPIView.as_view(), name='magicball'),
 ]

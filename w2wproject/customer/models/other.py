@@ -72,11 +72,11 @@ class FAQ(models.Model):
 
 
 class MagicBall(models.Model):
-    prediction = models.CharField(null=False, blank=False)
+    prediction = models.CharField(null=False, blank=False, max_length=355)
 
     def __str__(self):
         return f'{self.prediction}'
 
     class Meta:
-        verbose_prediction = "Предсказание"
+        verbose_name = "Предсказание"
         verbose_name_plural = "Предсказания"
