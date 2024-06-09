@@ -10,3 +10,11 @@ class FAQSerializer(serializers.ModelSerializer):
             "question",
             "answer",
         )
+
+
+class MagicBallSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = other.MagicBall
+        fields = (
+            "prediction",
+        )

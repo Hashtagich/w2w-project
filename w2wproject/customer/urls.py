@@ -12,4 +12,5 @@ urlpatterns = [
 # Other (FAQ)
 urlpatterns += [
     path('faq/', other.FAQAPIList.as_view(), name='faq'),
+    path('magicball/', other.MagicBallAPIView.as_view(), name='magicball'),
 ]

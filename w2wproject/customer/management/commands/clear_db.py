@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from .command_for_customer import clear_role_db, clear_tariff_db, clear_customer_db
-from .command_for_other import clear_faq_db, clear_average_check_db, clear_number_subscribers_db, clear_interests_db
+from .command_for_other import clear_faq_db, clear_average_check_db, clear_number_subscribers_db, clear_interests_db, \
+    clear_predictions_db
 
 
 class Command(BaseCommand):
@@ -13,9 +14,9 @@ class Command(BaseCommand):
     Инициализировать базы данных'''
 
     def handle(self, *args, **options):
-        count = clear_customer_db()
-        self.stdout.write(self.style.SUCCESS(
-            f'{count} records deleted from the database.\nЗаписи Customer в количестве {count} шт. удалены из базы данных.'))
+        # count = clear_customer_db()
+        # self.stdout.write(self.style.SUCCESS(
+        #     f'{count} records deleted from the database.\nЗаписи Customer в количестве {count} шт. удалены из базы данных.'))
 
         count = clear_role_db()
         self.stdout.write(self.style.SUCCESS(
@@ -40,6 +41,10 @@ class Command(BaseCommand):
         count = clear_interests_db()
         self.stdout.write(self.style.SUCCESS(
             f'{count} records deleted from the database.\nЗаписи Интересов в количестве {count} шт. удалены из базы данных.'))
+
+        count = clear_predictions_db()
+        self.stdout.write(self.style.SUCCESS(
+            f'{count} records deleted from the database.\nЗаписи Предсказаний в количестве {count} шт. удалены из базы данных.'))
 
         # End
         self.stdout.write(self.style.SUCCESS(

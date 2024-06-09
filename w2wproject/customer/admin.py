@@ -132,6 +132,11 @@ class FAQAdmin(admin.ModelAdmin):
     list_display = ('id', 'question', 'answer')
 
 
+@admin.register(other.MagicBall)
+class MagicBallAdmin(admin.ModelAdmin):
+    list_display = ('id', 'prediction')
+
+
 @admin.register(social_network.NameSocialNetwork)
 class NameSocialNetworkAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'sort', 'is_active')
