@@ -33,6 +33,9 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+AUTH_USER_MODEL = 'customer.Customer'
 # Application definition
 
 INSTALLED_APPS = [

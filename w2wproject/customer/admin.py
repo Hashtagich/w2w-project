@@ -19,7 +19,7 @@ class CustomerFotoInline(TabularInline):
 @admin.register(customer.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'surname', 'patronymic', 'nickname', 'email', 'phone', 'balance', 'experience', 'level',
+        'id', 'first_name', 'last_name', 'patronymic', 'username', 'email', 'phone', 'balance', 'experience', 'level',
         'modifier', 'gender', 'status', 'tariff')
 
     inlines = (CustomerFotoInline,)

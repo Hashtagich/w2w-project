@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from .other import Interest
 
 
@@ -17,33 +18,29 @@ def get_image_path_customer(instance, filename):
         return f'static/photos/customer-0/{filename}'
 
 
-class Customer(models.Model):
+class Customer(AbstractUser):
     """Модель пользователя."""
     GENDER = [
         ('man', 'Мужчина'),
         ('woman', 'Женщина'),
     ]
 
-    name = models.CharField("Имя пользователя", max_length=30, null=True)
-    surname = models.CharField("Фамилия пользователя", max_length=30, null=True)
     patronymic = models.CharField("Отчество пользователя", max_length=30, null=True, blank=True)
-    nickname = models.CharField("Никнейм пользователя", max_length=30, null=True, blank=True)
-    email = models.EmailField("Эл.почта пользователя", max_length=100, null=True)
-    phone = models.CharField("Контактный телефон", max_length=12, null=True)
+    phone = models.CharField("Контактный телефон", max_length=12, blank=True, null=True)
     balance = models.IntegerField("Баланс", null=True, default=1)
     experience = models.IntegerField("Опыт", null=True, default=1)
     level = models.IntegerField("Уровень", null=True, default=1)
     modifier = models.IntegerField("Модификатор", null=True, default=1)
-    gender = models.CharField("Пол", max_length=10, choices=GENDER)
-    status = models.ForeignKey("Role", on_delete=models.PROTECT, verbose_name="Роль")
-    tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф')
+    gender = models.CharField("Пол", max_length=10, choices=GENDER, blank=True)
+    status = models.ForeignKey("Role", on_delete=models.PROTECT, verbose_name="Роль", blank=True, null=True)
+    tariff = models.ForeignKey("Tariff", on_delete=models.PROTECT, verbose_name='Тариф', blank=True, null=True)
 
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_customer, blank=True, null=True)
 
     # link = models.ForeignKey(SocialNetwork, on_delete=models.CASCADE, verbose_name='Ссылка на соц сеть')
 
     datetime_create = models.DateTimeField(auto_now_add=True)
-    objects = models.Manager()
+
 
     interests = models.ManyToManyField(
         Interest,
@@ -54,7 +51,7 @@ class Customer(models.Model):
     )
 
     def __str__(self):
-        return f'{self.surname} {self.name} {self.patronymic} уровень {self.level}'
+        return f'{self.last_name} {self.first_name} {self.patronymic} уровень {self.level}'
 
     def modifier_up(self, point: int = 1):
         """Метод увеличения модификатора баланса пользователя. Увеличивается на величину point, по дефолту = 1."""
@@ -87,7 +84,7 @@ class Customer(models.Model):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
-        ordering = ('surname', 'name', 'balance')
+        ordering = ('last_name', 'first_name', 'balance')
 
 
 class Tariff(models.Model):
