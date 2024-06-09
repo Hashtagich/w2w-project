@@ -1,18 +1,19 @@
 .header {
-    padding: 15px 9vw;
+    padding: 15px 7vw;
+    background-color: #F8F8F8;
 
-    &-container {
+    &__container {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    &-logo {
+    &__logo {
         cursor: pointer;
     }
 
-    &-navigation {
+    &__navigation {
         
 
         a {
@@ -22,7 +23,7 @@
         }
     }
 
-    &-auth {
+    &__auth {
         cursor: pointer;
     }
 }

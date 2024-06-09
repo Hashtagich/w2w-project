@@ -1,13 +1,12 @@
-
+import Tariffs from './Components/Tariffs/Tariffs';
+import Main from './Components/Main/main';
 
 
 const HomePage = () => {
     return (
         <div>
-            {/* <Header/>
-            <Main/>
-            <Cards/>
-            <Footer/> */}
+           <Main/>
+           <Tariffs/>
         </div>
     )
 }

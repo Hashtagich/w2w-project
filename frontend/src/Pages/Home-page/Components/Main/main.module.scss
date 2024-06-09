@@ -1,0 +1,63 @@
+@import '../../../../mixins.scss';
+@import '../../../../variables.scss';
+
+.main {
+
+    padding: 38px 0 0 80px;
+
+    &__container {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        min-height: 700px;
+
+    }
+
+    &__title {
+        margin-top: 70px;
+    }
+
+    &__registration {
+        
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+
+
+        .images {
+            position: relative;
+
+            .img1 {
+                position: absolute;
+                left: 40%;
+            }
+
+            .img2 {
+                position: absolute;
+                left: 20%;
+                top: 50%;
+            }
+
+            .img3 {
+                position: absolute;
+                left: 60%;
+                top: 50%;
+            }
+
+            }
+
+            p {
+                 @include font-style($Comfortaa, 20px, 500);
+            }
+
+            button {
+                @include font-style($Manrope, 20px, 500);
+                color: white;
+                background-color: #2E3B81;
+                border-radius: 8px;
+                min-height: 56px;
+                min-width: 270px;
+            }
+
+    }
+}

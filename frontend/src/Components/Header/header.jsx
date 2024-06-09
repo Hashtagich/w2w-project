@@ -6,11 +6,11 @@ import person from './images/person.svg';
 const Header = () => {
     return (
         <header className={style.header}>
-            <div className={style['header-container']}>
-                <div className={style['header-logo']}>
+            <div className={style['header__container']}>
+                <div className={style['header__logo']}>
                     <img src={logo} alt="logo" />
                 </div>
-                <nav className={style['header-navigation']}>
+                <nav className={style['header__navigation']}>
                     <ul>
                         <a href="">О сервисе</a>
                         <a href="">Тарифы</a>
@@ -19,7 +19,7 @@ const Header = () => {
                         <a href="">Контакты</a>
                     </ul>
                 </nav>
-                <div className={style['header-auth']}>
+                <div className={style['header__auth']}>
                     <img src={person} alt="person" />
                 </div>
             </div>
