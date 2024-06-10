@@ -1,5 +1,5 @@
 import style from './tariffs.module.scss';
-import TariffCard from './Components/Tariff'
+import TariffCard from './Components/Tariffcard'
 
 const Tariffs = (props) => {
     return (

@@ -1,5 +1,5 @@
 import Tariffs from './Components/Tariffs/Tariffs';
-import Main from './Components/Main/main';
+import Main from './Components/Main/Main';
 
 
 const HomePage = () => {
