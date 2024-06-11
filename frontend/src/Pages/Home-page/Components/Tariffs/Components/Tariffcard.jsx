@@ -11,7 +11,7 @@ const Tariff = ({info}) => {
              <p className={style.text3}>{info.text3}</p>
              <button>{info.button}</button>
              <details>
-             <summary>Что входит:</summary>
+             <summary>О тарифе</summary>
                <div className={style['drop-down-list']}>
                </div>
              </details>
@@ -22,8 +22,8 @@ const Tariff = ({info}) => {
 export const tariffsInfo = [
     {
         code: 0,
-        title1: 'Тариф',
-        title2: '"Базовый"',
+        title1: 'Lite',
+        title2: 'Match',
         text1: 'Знаешь, кто тебя лайкнул в моменте.',
         text2: 'Стоимость за год',
         price: '12 000₽',
@@ -32,8 +32,8 @@ export const tariffsInfo = [
     },
     {
         code: 1,
-        title1: 'Тариф',
-        title2: '"Комфорт"',
+        title1: 'Comfort ',
+        title2: 'Match',
         text1: 'Знаешь, кто тебя лайкнул в моменте',
         text2: 'Стоимость за год',
         price: '24 000₽',
@@ -42,8 +42,8 @@ export const tariffsInfo = [
     },
     {
         code: 2,
-        title1: 'Тариф',
-        title2: '"Премиум"',
+        title1: 'Business',
+        title2: 'Match',
         text1: 'Знаешь, кто тебя лайкнул в моменте.',
         text2: 'Стоимость за год',
         price: '60 000₽',

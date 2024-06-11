@@ -54,9 +54,11 @@
                 @include font-style($Manrope, 20px, 500);
                 color: white;
                 background-color: #2E3B81;
+                border: none;
                 border-radius: 8px;
                 min-height: 56px;
                 min-width: 270px;
+                cursor: pointer;
             }
 
     }

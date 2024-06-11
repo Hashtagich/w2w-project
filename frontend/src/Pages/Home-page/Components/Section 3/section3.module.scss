@@ -1,0 +1,64 @@
+@import '../../../../mixins.scss';
+@import '../../../../variables.scss';
+
+
+.section3 {
+    height: 800px;
+    position: relative;
+    padding: 107px 154px;
+
+
+    &__container {
+        position: relative;
+
+        .constellation {
+            position: absolute;
+            left: 8%;
+            top: 90%;
+        }
+
+
+        p {
+            @include font-style($Comfortaa, 30px, 600);
+            display: inline-block;
+            text-align: center;
+            position: relative;
+          }
+
+          button {
+            background-color: #4B5692;
+            border: none;
+            border-radius: 8px;
+            width: 250px;
+            height: 56px;
+            color: white;
+            @include font-style($Comfortaa, 20px, 500);
+            position: relative;
+            top: 490px;
+            right: 470px;
+            cursor: pointer;
+          }
+
+    }
+
+    p:nth-child(2) {
+       
+    }
+    p:nth-child(3) {
+        top: 350px;
+    }
+    p:nth-child(4) {
+       left: 170px;
+       top: 100px;
+    }
+    p:nth-child(5) {
+       left: 350px;
+       top: 200px;
+    }
+    p:nth-child(6) {
+       top: 510px;
+       left: 50px;
+    }
+
+
+}
