@@ -58,15 +58,16 @@ class TaskInline(TabularInline):
 @admin.register(customer.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'surname', 'patronymic', 'nickname', 'email', 'phone', 'balance', 'experience', 'level',
-        'modifier', 'gender', 'status', 'tariff',)
+        'id', 'first_name', 'last_name', 'patronymic',
+        'username', 'email', 'phone', 'balance', 'experience',
+        'level', 'modifier', 'gender', 'status', 'tariff'
+    )
 
     inlines = (
         CustomerFotoInline,
         CustomerSocialNetworkInline,
         InterestInline
     )
-
 
 @admin.register(customer.Tariff)
 class TariffAdmin(admin.ModelAdmin):

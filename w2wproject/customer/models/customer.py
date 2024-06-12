@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from .other import Interest
@@ -16,7 +17,7 @@ def get_image_path_customer(instance, filename):
         return f'static/photos/customer-0/{filename}'
 
 
-class Customer(models.Model):
+class Customer(AbstractUser):
     """Модель пользователя."""
     GENDER = [
         ('man', 'Мужчина'),
