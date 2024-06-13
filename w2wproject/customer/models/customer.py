@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from .other import Interest
 
 
-# from .social_network import SocialNetwork
-
 def get_image_path_customer(instance, filename):
     """
     Функция для прописывания пути сохранения изображений. Если не будет найдено последнего (ни одного) объекта,
@@ -25,7 +23,26 @@ class Customer(AbstractUser):
         ('woman', 'Женщина'),
     ]
 
+    ZODIAC = [
+        ('Aries', 'Овен'),
+        ('Taurus', 'Телец'),
+        ('Gemini', 'Близнецы'),
+        ('Cancer', 'Рак'),
+        ('Leo', 'Лев'),
+        ('Virgo', 'Дева'),
+        ('Libra', 'Весы'),
+        ('Scorpio', 'Скорпион'),
+        ('Ophiuchus', 'Змееносец'),
+        ('Sagittarius', 'Стрелец'),
+        ('Capricorn', 'Козерог'),
+        ('Aquarius', 'Водолей'),
+        ('Pisces', 'Рыбы'),
+    ]
+
     patronymic = models.CharField("Отчество пользователя", max_length=30, null=True, blank=True)
+    # nickname = models.CharField("Никнейм пользователя", max_length=30, null=True, blank=True)
+    date_birth = models.DateField("Дата рождения", blank=True, null=True)
+    zodiac = models.CharField("Знак зодиака", max_length=20, choices=ZODIAC, blank=True)
     phone = models.CharField("Контактный телефон", max_length=12, blank=True, null=True)
     balance = models.IntegerField("Баланс", null=True, default=1)
     experience = models.IntegerField("Опыт", null=True, default=1)
@@ -37,10 +54,7 @@ class Customer(AbstractUser):
 
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_customer, blank=True, null=True)
 
-    # link = models.ForeignKey(SocialNetwork, on_delete=models.CASCADE, verbose_name='Ссылка на соц сеть')
-
     datetime_create = models.DateTimeField(auto_now_add=True)
-
 
     interests = models.ManyToManyField(
         Interest,
@@ -135,12 +149,12 @@ class FotoCustomer(models.Model):
         Customer, models.PROTECT, 'customer_foto', verbose_name='ID пользователя'
     )
 
+    def __str__(self):
+        return f'{self.description} ({self.pk})'
+
     class Meta:
         verbose_name = 'Фотография пользователя'
         verbose_name_plural = 'Фотографии пользователя'
-
-    def __str__(self):
-        return f'{self.description} ({self.pk})'
 
 
 class CustomerInterest(models.Model):
@@ -152,10 +166,10 @@ class CustomerInterest(models.Model):
         Interest, models.PROTECT, 'interests', verbose_name='ID интереса'
     )
 
+    def __str__(self):
+        return f'({self.pk}) {self.customer_id}'
+
     class Meta:
         verbose_name = 'Сводная таблица пользователь и интерес'
         verbose_name_plural = 'Сводные таблицы пользователи и интересы'
         ordering = ('-customer_id', 'interest_id',)
-
-    def __str__(self):
-        return f'({self.pk}) {self.customer_id}'

@@ -1,4 +1,5 @@
 from django.db import models
+from .customer import Customer
 
 
 class NameSocialNetwork(models.Model):
@@ -13,7 +14,7 @@ class NameSocialNetwork(models.Model):
     datetime_create = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.name} {self.datetime_create}'
+        return f'{self.name} от {self.datetime_create.strftime("%d %B %Y %H:%M:%S")}'
 
     class Meta:
         verbose_name = "Название соц сети"
@@ -26,8 +27,14 @@ class SocialNetwork(models.Model):
     """
     name = models.ForeignKey(NameSocialNetwork, models.RESTRICT, 'socialnetwork_name',
                              verbose_name='Название соц сети')
-    link = models.CharField("Ссылка на соц сеть/месседжер/сайт", max_length=60, null=False)
+    link = models.URLField("Ссылка на соц сеть/месседжер/сайт", max_length=200, null=False)
     datetime_create = models.DateTimeField(auto_now_add=True)
+    customer_id = models.ForeignKey(
+        Customer, models.PROTECT, 'customer_social_network', verbose_name='ID пользователя'
+    )
+
+    def __str__(self):
+        return f'{self.name.name}: {self.link}'
 
     class Meta:
         verbose_name = "Ссылка на соц сеть"

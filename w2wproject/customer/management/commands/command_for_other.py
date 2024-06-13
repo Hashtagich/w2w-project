@@ -1,4 +1,4 @@
-from customer.models import other
+from ...models import other
 from .support_def import get_json, create_simple_db, clear_db
 
 
@@ -26,7 +26,17 @@ def create_number_subscribers_db():
 
 def create_interests_db():
     """Функция для наполнения базы данных Интересов данными из файла interests.json"""
-    create_simple_db(name_model=other.Interests, name_json_file='interests')
+    create_simple_db(name_model=other.Interest, name_json_file='interests')
+
+
+def create_predictions_db():
+    """Функция для наполнения базы данных Предсказаний из файла predictions.json"""
+    if not other.MagicBall.objects.count():
+        data = get_json(name_json_file='predictions')
+        for db in data:
+            other.MagicBall(
+                prediction=db['name'],
+            ).save()
 
 
 # Delete
@@ -47,4 +57,9 @@ def clear_number_subscribers_db():
 
 def clear_interests_db():
     """Функция для удаления базы данных Интересов."""
-    return clear_db(name_model=other.Interests)
+    return clear_db(name_model=other.Interest)
+
+
+def clear_predictions_db():
+    """Функция для удаления базы данных Предсказаний."""
+    return clear_db(name_model=other.MagicBall)

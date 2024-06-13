@@ -1,4 +1,4 @@
-from customer.models import customer
+from ...models import customer
 from .support_def import get_json, create_simple_db, clear_db
 
 
