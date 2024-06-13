@@ -83,7 +83,7 @@ ___
 | 10 | Александрова Екатерина | Backend разработчик               | @KateAlexandrova     | https://github.com/aliensen36                     |
 | 11 | Караханов Александр    | Backend разработчик               | @geographOne         | https://github.com/Gitgeograph                    |
 | 12 | Кочанова Мария         | Frontend разработчик              | @kochanovama         | https://github.com/MariaKochanova                 |
-| 13 | Дергачев Алексей       | Frontend разработчик              | @nkoidcool           |                                                   |
+| 13 | Дергачев Алексей       | Frontend разработчик              | @nkoidcool           | https://github.com/Allex2689                      |
 | 14 | Валиахметова Миляуша   | Аналитик данных                   | @milya_v             |                                                   |
 | 15 | Застанкевич Ольга      | Тестировщик                       | @Zastankevich        |                                                   |
 | 16 | Шестаков Дмитрий       | Тестировщик-автоматизатор         | @dima_hero1          |                                                   |

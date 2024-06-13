@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 from dj_rest_auth.registration.views import RegisterView, VerifyEmailView
-from customer.views import CustomerViewSet, CustomConfirmEmailView
+from .views.customer import CustomerViewSet, CustomConfirmEmailView
 
 router = DefaultRouter()
 router.register(r'customers', CustomerViewSet)
