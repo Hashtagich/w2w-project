@@ -4,7 +4,6 @@ from drf_spectacular.views import SpectacularAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('customer.urls')),
+    path('api/', include('accounts.urls')),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('', include('customer.urls')),
 ]
