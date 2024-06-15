@@ -3,13 +3,14 @@
 
 
 .section3 {
-    height: 800px;
+    height: 550px;
     position: relative;
-    padding: 107px 154px;
+    padding: 30vh 15vw 10vh 10vw;
 
 
     &__container {
         position: relative;
+        @include centered-block (1280px);
 
         .constellation {
             position: absolute;
@@ -22,7 +23,7 @@
             @include font-style($Comfortaa, 30px, 600);
             display: inline-block;
             text-align: center;
-            position: relative;
+            position: absolute;
           }
 
           button {
@@ -33,8 +34,8 @@
             height: 56px;
             color: white;
             @include font-style($Comfortaa, 20px, 500);
-            position: relative;
-            top: 490px;
+            position: absolute;
+            top: 440px;
             right: 470px;
             cursor: pointer;
           }
@@ -42,22 +43,24 @@
     }
 
     p:nth-child(2) {
-       
+       top: -120px;
     }
     p:nth-child(3) {
-        top: 350px;
+        top: 230px;
+        left: 200px;
     }
     p:nth-child(4) {
-       left: 170px;
-       top: 100px;
+       left: 500px;
+       top: -50px;
     }
     p:nth-child(5) {
-       left: 350px;
-       top: 200px;
+       left: 900px;
+       top: 100px;
+       width: auto;
     }
     p:nth-child(6) {
-       top: 510px;
-       left: 50px;
+       top: 400px;
+       left: 830px;
     }
 
 

@@ -1,8 +1,8 @@
-import style from '../tariffs.module.scss';
+import style from '../section4.module.scss';
 
 const Tariff = ({info}) => {
     return (
-        <div className={style['tariffsCard']}>
+        <div className={style.tariffsCard}>
              <h1>{info.title1}</h1>
              <h1>{info.title2}</h1>
              <p className={style.text1}>{info.text1}</p>

@@ -8,12 +8,17 @@
     &__container {
 
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 300px 380px 300px;  
         gap: 35px;
-        
-        .tariffsCard {
+        @include centered-block (1280px);
 
-           transition: transform 0.5s ease-in-out;
+
+        .tariffsCard-1 {
+            color: red;
+        }
+
+
+        .tariffsCard {
            padding: 36px 41px;
            background-color: #D9D9D966;
            display: flex;
@@ -124,11 +129,6 @@
             }
 
            }
-
-           &:hover {
-            transform: scale(1.1); 
-
-        }
 
         }
 

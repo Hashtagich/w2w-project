@@ -1,6 +1,6 @@
-import style from './main.module.scss';
+import style from './section1.module.scss';
 
-const Main = () => {
+const Section1 = () => {
 
     return (
         <div className={style.main}>
@@ -15,7 +15,7 @@ const Main = () => {
                     <img src="./star3.svg" alt="star3" className={style.img3}/>
                     </div>
                     <div className={style.registration}>
-                    <p>Объединяем бренды по ценностям<br/>и помогаем делать коллабы для <br/>роста бизнеса</p>
+                    <p>Объединяем бренды по ценностям и<br/> помогаем делать коллабы для роста<br/> бизнеса</p>
                     <button>Зарегистрироваться</button>
                     </div>
                 </div>
@@ -24,4 +24,4 @@ const Main = () => {
     )
 }
 
-export default Main;
+export default Section1;
