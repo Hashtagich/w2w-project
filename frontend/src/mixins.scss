@@ -5,3 +5,9 @@
     font-weight: $font-weight;
 
 }
+
+@mixin centered-block ($width) {
+	width: $width;
+	margin: 0 auto;
+    background-color: #F8F8F8;
+}
