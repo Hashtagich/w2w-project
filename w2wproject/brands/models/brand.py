@@ -1,9 +1,7 @@
 from django.db import models
 from .other import NumberSubscribers, AverageCheck, Interest
 from collaborations.models.collaboration import Collaboration
-
-
-# from accounts.models import User
+from accounts.models import User
 
 
 # Create your models here.
@@ -32,10 +30,10 @@ class Brand(models.Model):
 
     name = models.CharField("Название бренда", max_length=30, null=True)
     status = models.CharField("Статус", max_length=50, choices=CHOICE_STATUS, default="new")
-    # author = models.OneToOneField(User, on_delete=models.CASCADE)
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
     number_subscribers = models.ForeignKey(NumberSubscribers, on_delete=models.PROTECT,
                                            verbose_name="Кол-во подписчиков", blank=True)
-    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек', blank=True)
+    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек', blank=True, null=True)
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_brand, blank=True, null=True)
     value = models.CharField("Ценности бренда", max_length=256, null=True, blank=True)
     target_audience = models.TextField("Целевая аудитория", null=True, blank=True)

@@ -1,8 +1,6 @@
 from django.db import models
 from brands.models.other import NumberSubscribers, AverageCheck
-
-
-# from accounts.models import User
+from accounts.models import User
 
 
 def get_image_path_collaboration(instance, filename):
@@ -78,16 +76,15 @@ class Task(models.Model):
     collaboration_id = models.ForeignKey(
         Collaboration, models.PROTECT, 'collaboration_task', verbose_name='Коллаборация'
     )
-    # author = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Пользователь/автор", blank=True)
+    author = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Пользователь/автор", blank=True)
 
-    datetime_start = models.DateTimeField("Дата начала задачи/этапа", blank=True)
-    datetime_completion = models.DateTimeField("Дата когда задача/этап должна быть выполнена", blank=True)
-    datetime_finish = models.DateTimeField("Дата окончания задачи/этапа", blank=True)
+    datetime_start = models.DateTimeField("Дата начала задачи/этапа", blank=True, null=True)
+    datetime_completion = models.DateTimeField("Дата когда задача/этап должна быть выполнена", blank=True, null=True)
+    datetime_finish = models.DateTimeField("Дата окончания задачи/этапа", blank=True, null=True)
     datetime_create = models.DateTimeField("Дата создания задачи/этапа", auto_now_add=True)
-    objects = models.Manager()
 
     def __str__(self):
-        return f'{self.name} - {self.status}'
+        return f'{self.name} - {self.description[:20]} - {self.status}'
 
     class Meta:
         verbose_name = "Задача"
