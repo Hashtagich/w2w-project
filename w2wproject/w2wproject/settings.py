@@ -55,6 +55,7 @@ INSTALLED_APPS += [
 
     'accounts.apps.AccountsConfig',
     'brands.apps.BrandsConfig',
+    'collaborations.apps.CollaborationConfig',
     'chat.apps.ChatConfig',
     'orders.apps.OrdersConfig',
     'news.apps.NewsConfig',
