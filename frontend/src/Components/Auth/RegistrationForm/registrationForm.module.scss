@@ -1,0 +1,114 @@
+@import '../../../variables.scss';
+@import '../../../mixins.scss';
+
+.registration {
+    position: relative;
+    margin-top: 5vh;
+    min-height: 750px;
+
+    &__form {
+        @include centered-block (1280px);
+        background-color: #FFFFFF;
+        width: 450px;
+        min-height: 650px;
+        margin-top: 30px;
+        border-radius: 8px;
+        border: 0.5px solid #0C0F20;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0px;
+        padding: 0 50px 44px;
+
+        h1 {
+            text-align: center;
+            @include font-style ($Manrope, 24px, 500);
+            margin-bottom: 0;
+        }
+
+
+
+        .inputContainer {
+            width: 100%;
+
+            p {
+                margin-bottom: 5px;
+                @include font-style ($Comfortaa, 16px, 400);
+               
+            }
+    
+            input {
+                width: 100%;
+                padding: 12px, 8px, 12px, 8px;
+                border: none;
+                border-radius: 8px;
+                background-color: #D9D9D966;
+                height: 52px;
+            }
+
+        }
+
+        .confirmed {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            input {
+                margin-left: 20px;
+                width: 16px;
+                height: 16px;
+                background-repeat: no-repeat; /* повторяем изображение */
+                background-position: center; /* выравниваем по центру */
+                background-size: contain; /* подгоняем размер под изображение */
+                background-image: url('../../../../public/check.svg'); /* путь к файлу */
+            }
+
+            p {
+                @include font-style ($Comfortaa, 16px, 400);
+                margin-left: 20px;
+            }
+        }
+
+
+        .links2 {
+            @include font-style ($Comfortaa, 20px, 500);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            margin-top: 30px;
+            letter-spacing: 4px;
+
+            a {
+                text-decoration: none;
+                color: grey;
+            }               
+
+            a:nth-child(1) {
+                margin-right: 22px;
+                color: black;
+            }
+            a:nth-child(2) {
+                margin-left: 22px;
+                
+            }
+        }
+
+
+        button {
+            color: white;
+            background-color: #4B5692;
+            padding: 28px, 20px, 28px, 20px;
+            border: none;
+            border-radius: 8px;
+            height: 56px;
+            width: 80%;
+            @include font-style ($Comfortaa, 20px, 500);
+            cursor: pointer;
+            letter-spacing: 3px;
+
+        }
+        
+    }
+}

@@ -5,6 +5,7 @@
 .header {
     padding: 15px 7vw;
     background-color: #F8F8F8;
+    @include font-style ($Manrope, 18px, 500);
 
     &__container {
         width: 100%;

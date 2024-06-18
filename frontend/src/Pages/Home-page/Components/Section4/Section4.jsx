@@ -1,9 +1,9 @@
 import style from './section4.module.scss';
-import TariffCard from './Components/Tariffcard'
+import TariffCard from './Components/Tariffcard';
 
 const Section4 = (props) => {
     return (
-        <div className={style.tariffs}>
+        <div className={style.tariffs} id='tariffs'>
             <div className={style['tariffs__container']}>
                 <TariffCard/>
             </div>
