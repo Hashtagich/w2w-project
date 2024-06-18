@@ -5,5 +5,5 @@ from news.views import PostViewSet
 router = DefaultRouter()
 
 urlpatterns = [
-    path('news/', PostViewSet.as_view(), name='exhibitions'),
+    path('news/', PostViewSet.as_view(), name='news'),
 ]
