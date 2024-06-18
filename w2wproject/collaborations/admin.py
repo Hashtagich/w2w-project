@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.contrib.admin import TabularInline
 from .models import collaboration
 from brands.models import brand
-
 from .models.match import Like, Match, Chat, Message
 
 
