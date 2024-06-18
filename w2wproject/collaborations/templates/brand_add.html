@@ -1,0 +1,66 @@
+<!-- templates/brand_add.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Brand</title>
+</head>
+<body>
+    <h1>Add New Brand</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="status">Status:</label><br>
+        <select id="status" name="status">
+            <option value="new">Новый</option>
+            <option value="pending">Модератор взял в работу</option>
+            <option value="accepted">Модерация прошла успешно</option>
+            <option value="rejected">Модерация прошла, информация не принята</option>
+        </select><br><br>
+
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author"><br><br>
+
+        <label for="number_subscribers">Number of Subscribers:</label><br>
+        <input type="text" id="number_subscribers" name="number_subscribers"><br><br>
+
+        <label for="average_check">Average Check:</label><br>
+        <input type="text" id="average_check" name="average_check"><br><br>
+
+        <label for="avatar_id">Avatar:</label><br>
+        <input type="file" id="avatar_id" name="avatar_id"><br><br>
+
+        <label for="value">Brand Values:</label><br>
+        <textarea id="value" name="value"></textarea><br><br>
+
+        <label for="target_audience">Target Audience:</label><br>
+        <textarea id="target_audience" name="target_audience"></textarea><br><br>
+
+        <label for="link">Website URL:</label><br>
+        <input type="url" id="link" name="link"><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label for="geo">Geo:</label><br>
+        <input type="text" id="geo" name="geo"><br><br>
+
+        <label for="balance">Balance:</label><br>
+        <input type="number" id="balance" name="balance"><br><br>
+
+        <label for="experience">Experience:</label><br>
+        <input type="number" id="experience" name="experience"><br><br>
+
+        <label for="level">Level:</label><br>
+        <input type="number" id="level" name="level"><br><br>
+
+        <label for="modifier">Modifier:</label><br>
+        <input type="number" id="modifier" name="modifier"><br><br>
+
+        <input type="submit" value="Add Brand">
+    </form>
+</body>
+</html>

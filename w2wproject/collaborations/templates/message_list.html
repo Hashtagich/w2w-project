@@ -1,0 +1,19 @@
+<!-- message_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Messages</title>
+</head>
+<body>
+    <h1>List of Messages</h1>
+    <ul>
+        {% for message in messages %}
+            <li>From: {{ message.sender }} | Text: {{ message.text }} | Created at: {{ message.created_at }}</li>
+        {% empty %}
+            <li>No messages found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

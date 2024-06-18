@@ -1,0 +1,19 @@
+<!-- like_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Likes</title>
+</head>
+<body>
+    <h1>List of Likes</h1>
+    <ul>
+        {% for like in likes %}
+            <li>{{ like.from_brand }} liked {{ like.to_brand }} at {{ like.created_at }}</li>
+        {% empty %}
+            <li>No likes found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

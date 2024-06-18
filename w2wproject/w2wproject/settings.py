@@ -77,7 +77,7 @@ ROOT_URLCONF = 'w2wproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -182,3 +182,8 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
+
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/auth/login/'
+LOGIN_REDIRECT_URL = '/brands/'

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+    <h1>Chat between {{ chat.match.brand1.name }} and {{ chat.match.brand2.name }}</h1>
+    <div id="messages">
+        {% for message in messages %}
+            <div class="{% if message.sender == request.user.brand %}sent{% else %}received{% endif %}">
+                <p><strong>{{ message.sender.name }}:</strong> {{ message.text }}</p>
+                <p><small>{{ message.created_at }}</small></p>
+            </div>
+        {% endfor %}
+    </div>
+    <form action="{% url 'send-message' chat.id %}" method="post">
+        {% csrf_token %}
+        <textarea name="text" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
