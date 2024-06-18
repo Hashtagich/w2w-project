@@ -1,4 +1,4 @@
-@mixin font-style($font-family, $font-size, $font-weight) {
+@mixin font-style ($font-family, $font-size, $font-weight) {
 
     font-family: $font-family;
     font-size: $font-size;
@@ -9,5 +9,5 @@
 @mixin centered-block ($width) {
 	max-width: $width;
 	margin: 0 auto;
-    background-color: #F8F8F8;
+    // background-color: #F8F8F8;
 }

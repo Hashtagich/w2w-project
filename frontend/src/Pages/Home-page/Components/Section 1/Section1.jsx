@@ -1,9 +1,16 @@
-import style from './main.module.scss';
+import { useNavigate } from 'react-router-dom';
+import style from './section1.module.scss';
 
-const Main = () => {
+const Section1 = () => {
+    const navigate = useNavigate();
+
+    const goToReg = () => {
+        navigate('/registration');
+    }
+
 
     return (
-        <div className={style.main}>
+        <div className={style.main} id='service'>
             <div className={style['main__container']}>
                 <div className={style['main__title']}>
                     <img src="./title.svg" alt="title" />
@@ -15,8 +22,8 @@ const Main = () => {
                     <img src="./star3.svg" alt="star3" className={style.img3}/>
                     </div>
                     <div className={style.registration}>
-                    <p>Объединяем бренды по ценностям<br/>и помогаем делать коллабы для <br/>роста бизнеса</p>
-                    <button>Зарегистрироваться</button>
+                    <p>Объединяем бренды по ценностям и<br/> помогаем делать коллабы для роста<br/> бизнеса</p>
+                    <button onClick={goToReg}>Зарегистрироваться</button>
                     </div>
                 </div>
             </div>
@@ -24,4 +31,4 @@ const Main = () => {
     )
 }
 
-export default Main;
+export default Section1;

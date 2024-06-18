@@ -9,13 +9,18 @@
 
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        gap: 12vw;
         min-height: 700px;
+        @include centered-block (1280px);
 
     }
 
     &__title {
-        margin-top: 70px;
+        margin-top: 180px;
+
+        img {
+            cursor: pointer;
+        }
     }
 
     &__registration {
@@ -47,18 +52,20 @@
             }
 
             p {
-                 @include font-style($Comfortaa, 20px, 500);
+                 @include font-style($Manrope, 20px, 500);
+                 margin-bottom: 24px;
             }
 
             button {
-                @include font-style($Manrope, 20px, 500);
+                @include font-style($Comfortaa, 20px, 500);
                 color: white;
                 background-color: #2E3B81;
                 border: none;
                 border-radius: 8px;
                 min-height: 56px;
-                min-width: 270px;
+                min-width: 311px;
                 cursor: pointer;
+                letter-spacing: 2px;
             }
 
     }
