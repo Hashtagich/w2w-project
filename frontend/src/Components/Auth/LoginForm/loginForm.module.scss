@@ -1,0 +1,109 @@
+@import '../../../variables.scss';
+@import '../../../mixins.scss';
+
+.login {
+    position: relative;
+    margin-top: 5vh;
+    min-height: 750px;
+
+    &__form {
+        @include centered-block (1280px);
+        background-color: #FFFFFF;
+        width: 450px;
+        min-height: 650px;
+        margin-top: 30px;
+        border-radius: 8px;
+        border: 0.5px solid #0C0F20;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0px;
+        padding: 0 50px 44px;
+
+        h1 {
+            text-align: center;
+            @include font-style ($Manrope, 24px, 500);
+            margin: 0;
+        }
+
+
+
+        .inputContainer {
+            width: 100%;
+
+            p {
+                margin-bottom: 5px;
+                @include font-style ($Comfortaa, 16px, 400);
+               
+            }
+    
+            input {
+                width: 100%;
+                padding: 12px, 8px, 12px, 8px;
+                border: none;
+                border-radius: 8px;
+                background-color: #D9D9D966;
+                height: 52px;
+            }
+
+        }
+
+        .links1 {
+            color: #6F95F5;
+            // margin-top: 20px;
+            @include font-style ($Comfortaa, 16px, 400);
+
+
+            a {
+                text-decoration: none;
+                color: #6F95F5;
+            }               
+
+            a:nth-child(1) {
+                margin-right: 10px;
+            }
+            a:nth-child(2) {
+                margin-left: 10px;
+            }
+        }
+
+
+        .links2 {
+            @include font-style ($Comfortaa, 20px, 500);
+            // margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            letter-spacing: 3px;
+
+            a {
+                text-decoration: none;
+                color: grey;
+            }               
+
+            a:nth-child(1) {
+                margin-right: 22px;
+            }
+            a:nth-child(2) {
+                margin-left: 22px;
+                color: black;
+            }
+        }
+
+
+        button {
+            color: white;
+            background-color: #4B5692;
+            padding: 28px, 20px, 28px, 20px;
+            border: none;
+            border-radius: 8px;
+            height: 56px;
+            width: 80%;
+            @include font-style ($Comfortaa, 20px, 500);
+            cursor: pointer;
+            letter-spacing: 3px;
+        }
+        
+    }
+}

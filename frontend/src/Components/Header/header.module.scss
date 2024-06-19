@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+
+.header {
+    padding: 15px 7vw;
+    background-color: #F8F8F8;
+    @include font-style ($Manrope, 18px, 500);
+
+    &__container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include centered-block (1280px);
+    }
+
+    &__logo {
+        cursor: pointer;
+    }
+
+    &__navigation {
+        
+
+        a {
+            margin-right: 5vw;
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    &__auth {
+        cursor: pointer;
+    }
+}
