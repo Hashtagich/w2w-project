@@ -9,11 +9,6 @@ from random import choice
 # Create your views here.
 
 
-class PredictionViewSet(generics.ListAPIView):
-    serializer_class = PredictionSerializer
-    queryset = Predictions.objects.all()
-
-
 class PredictionAPIView(APIView):
     def get(self, request, format=None):
         predictions = Predictions.objects.all()
