@@ -3,6 +3,8 @@ from news.models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
+    datetime_create = serializers.DateTimeField(format='%d.%m.%Y %H:%M:%S')
+
     class Meta:
         model = Post
         fields = "__all__"

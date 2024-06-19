@@ -5,6 +5,7 @@ from brands.models import Brand
 from brands.serializers.brand import ExperienceUpSerializer, BrandSerializer
 from accounts.models import User
 from rest_framework import viewsets, filters, generics, mixins
+from drf_spectacular.utils import extend_schema_view, extend_schema
 
 
 # class ExperienceUpView(APIView):
@@ -25,12 +26,17 @@ from rest_framework import viewsets, filters, generics, mixins
 #                 return Response({"message": "User is not authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
 #         return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+@extend_schema_view(
+    get=extend_schema(summary='Получение бренда по его ID', tags=['Бренды'])
+)
 class BrandAPIRetrieve(generics.RetrieveAPIView):
     serializer_class = BrandSerializer
     queryset = Brand.objects.all()
 
 
+@extend_schema_view(
+    get=extend_schema(summary='Получение всех брендов', tags=['Бренды'])
+)
 class BrandAPIList(generics.ListAPIView):
     serializer_class = BrandSerializer
     queryset = Brand.objects.all()
