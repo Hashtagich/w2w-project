@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from brands.models import Brand, Interest, Category, FotoBrand, SocialNetwork
 from brands.serializers.other import (AverageCheckSerializer, NumberSubscribersSerializer, BaseSerializer)
-# from brands.serializers.social_network import SocialNetworkBrandSerializer
+from brands.serializers.social_network import SocialNetworkBrandSerializer
 
 
 class ExperienceUpSerializer(serializers.Serializer):
@@ -35,8 +35,7 @@ class BrandSerializer(serializers.ModelSerializer):
     interests = InterestBrandSerializer(many=True)
     category = CategoryBrandSerializer(many=True)
     brand_foto = FotoBrandSerializer(many=True)
-
-    # social_network = SocialNetworkBrandSerializer(many=True)
+    brand_social_network = SocialNetworkBrandSerializer(many=True)
 
     class Meta:
         model = Brand
@@ -62,5 +61,5 @@ class BrandSerializer(serializers.ModelSerializer):
             'category',
             'collaboration',
             'brand_foto',
-            # 'social_network',
+            'brand_social_network',
         )

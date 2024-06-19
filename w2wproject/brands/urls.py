@@ -15,8 +15,8 @@ urlpatterns = [
 
 # brand
 urlpatterns += [
-    path('brands/', BrandAPIList.as_view(), name='prediction'),
-    path('brand/<int:pk>/', BrandAPIRetrieve.as_view(), name='prediction'),
+    path('brands/', BrandAPIList.as_view(), name='brands'),
+    path('brand/<int:pk>/', BrandAPIRetrieve.as_view(), name='brand'),
 ]
 
 # other
@@ -25,7 +25,7 @@ urlpatterns += [
     # path('experience_up/', ExperienceUpView.as_view(), name='experience_up'),
 ]
 
-# social_network
-urlpatterns += [
-    path('social_network/', SocialNetworkAPIList.as_view(), name='social_network'),
-]
+# # social_network
+# urlpatterns += [
+#     path('social_network/', SocialNetworkAPIList.as_view(), name='social_network'),
+# ]
