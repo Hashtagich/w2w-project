@@ -1,11 +1,14 @@
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from brands.models import Brand
-from brands.serializers.brand import ExperienceUpSerializer, BrandSerializer
+from brands.serializers.brand import ExperienceUpSerializer, BrandSerializer, BrandModifierUpSerializer
 from accounts.models import User
 from rest_framework import viewsets, filters, generics, mixins
 from drf_spectacular.utils import extend_schema_view, extend_schema
+
+
 
 
 # class ExperienceUpView(APIView):
@@ -40,3 +43,19 @@ class BrandAPIRetrieve(generics.RetrieveAPIView):
 class BrandAPIList(generics.ListAPIView):
     serializer_class = BrandSerializer
     queryset = Brand.objects.all()
+
+
+@api_view(['PATCH'])
+def brand_modifier_up(request, pk):
+    try:
+        brand = Brand.objects.get(pk=pk)
+    except Brand.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'PATCH':
+        serializer = BrandModifierUpSerializer(brand, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            updated_brand_serializer = BrandSerializer(brand)
+            return Response(updated_brand_serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

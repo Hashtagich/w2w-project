@@ -63,3 +63,18 @@ class BrandSerializer(serializers.ModelSerializer):
             'brand_foto',
             'brand_social_network',
         )
+
+        def update(self, instance, validated_data):
+            modifier_point = validated_data.pop('modifier_point', None)
+            if modifier_point is not None:
+                instance.modifier_up(modifier_point)
+            return super().update(instance, validated_data)
+
+class BrandModifierUpSerializer(serializers.Serializer):
+    point = serializers.IntegerField(default=1)
+
+    def update(self, instance, validated_data):
+        point = validated_data.get('point', 1)
+        instance.modifier_up(point)
+        instance.save()
+        return instance
