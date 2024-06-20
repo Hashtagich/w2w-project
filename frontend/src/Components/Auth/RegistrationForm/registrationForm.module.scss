@@ -24,7 +24,7 @@
         h1 {
             text-align: center;
             @include font-style ($Manrope, 24px, 500);
-            margin-bottom: 0;
+            margin-bottom: 30px;
         }
 
 
@@ -78,7 +78,7 @@
             justify-content: center;
             margin-bottom: 30px;
             margin-top: 30px;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
 
             a {
                 text-decoration: none;
@@ -103,10 +103,10 @@
             border: none;
             border-radius: 8px;
             height: 56px;
-            width: 80%;
+            width: 85%;
             @include font-style ($Comfortaa, 20px, 500);
             cursor: pointer;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
 
         }
         

@@ -8,14 +8,16 @@
     align-items: center;
     position: relative;
 
-    .img1 {
-        
+    .prevButton {
+        position: absolute;
         cursor: pointer;
+        left: 2vw;
     }
 
-    .img2 {
-        
+    .nextButton {
+        position: absolute;
         cursor: pointer;
+        right: 2vw;
     }
 
 
@@ -59,8 +61,8 @@
         display: flex;
         
 
+        
 
-            
     .swiper {
         margin-left: 0; 
         margin-right: 0; 
