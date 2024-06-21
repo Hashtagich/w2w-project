@@ -1,0 +1,79 @@
+@import '../../../../../../variables.scss';
+@import '../../../../../../mixins.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  @include font-style('Roboto', 12px, 400);
+}
+
+.dropdown-toggle {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 0.5px solid black;
+  width: 100%;
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include font-style($Manrope, 15px, 400);
+
+
+  &::after {
+      content: url('../../../../../../../public/Vector.svg');
+  }
+  
+}
+
+
+.dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  background-color: #F8F8F8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 0.5px solid black;
+  border-radius: 10px;
+  z-index: 1000;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  li:nth-child(6) {
+    color: gray;
+  }
+
+  li:nth-child(7) {
+    color: gray;
+  }
+
+  li:nth-child(8) {
+    color: gray;
+  }
+}
+
+.dropdown-menu-up {
+  bottom: 100%;
+  display: none; /* Скрываем меню по умолчанию */
+  transition: transform 0.3s ease-out; /* Добавляем анимацию */
+}
+
+.dropdown-menu-up.dropdown-open {
+  display: flex; /* Показываем меню, когда оно открыто */
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

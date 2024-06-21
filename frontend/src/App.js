@@ -7,6 +7,7 @@ import LoginForm from './Components/Auth/LoginForm/LoginForm';
 import RegistrationForm from './Components/Auth/RegistrationForm/RegistrationForm';
 import UserContext from './Contexts/UserContext';
 import BrandPage from './Pages/Brand-page/index';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/brand-page" element={<BrandPage />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/registration" element={<RegistrationForm />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </UserContext.Provider>

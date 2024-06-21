@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import style from '../section5.module.scss';
 import StarRating from './StarRating';
+
 
 
 const BrandCard = ({info}) => {
@@ -38,7 +39,7 @@ const infoCards = [
     {
         code: 1,
         img1: {
-            src: './foto.svg',
+            src: './foto1.svg',
             alt: 'foto'
         },
         name: 'Анна Смирнова',
@@ -51,7 +52,7 @@ const infoCards = [
     {
         code: 2,
         img1: {
-            src: './foto.svg',
+            src: './foto2.svg',
             alt: 'foto'
         },
         name: 'Анастасия Славская',
@@ -63,6 +64,19 @@ const infoCards = [
     },
     {
         code: 3,
+        img1: {
+            src: './foto3.svg',
+            alt: 'foto'
+        },
+        name: 'Анастасия',
+        img2: {
+            src: './nameLogo.svg',
+            alt: 'nameLogo'
+        },
+        infoText: 'Хочу внедрять качественные коллаборации в историю своего бренда, как инструмент развития! Круто, что для этого есть сервис W2W Match, я уже подала заявку.',
+    },
+    {
+        code: 4,
         img1: {
             src: './foto.svg',
             alt: 'foto'
@@ -77,25 +91,36 @@ const infoCards = [
 ]
 
 
-const Card = () => {
+const Card = React.forwardRef((props, ref) => {
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        if (ref) {
+            if (typeof ref === 'function') {
+                ref(swiperRef.current);
+            } else {
+                ref.current = swiperRef.current;
+            }
+        }
+    }, [ref]);
+
     return (
         <div className={style.swipe}>
-            
-        <Swiper
-        spaceBetween={50}
-        slidesPerView={4}
-        className={style.swiper}
-        loop
-        >
-            {infoCards.map((info) => (
-                <SwiperSlide>
-                <BrandCard  key={info.code} info={info} />
-                </SwiperSlide>
-              
-            ))}
-        </Swiper> 
+            <Swiper
+                spaceBetween={50}
+                slidesPerView={4}
+                className={style.swiper}
+                loop
+                ref={swiperRef}
+            >
+                {infoCards.map((info) => (
+                    <SwiperSlide key={info.code}>
+                        <BrandCard info={info} />
+                    </SwiperSlide>
+                ))}
+            </Swiper> 
         </div>
     )
-}
+});
 
 export default Card;

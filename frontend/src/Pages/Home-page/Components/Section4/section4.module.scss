@@ -67,7 +67,7 @@
     
                }
     
-               button {
+               .button1 {
     
                 @include font-style($Comfortaa, 20px, 500);
                 color: white;
@@ -83,42 +83,7 @@
     
                }
     
-                details {
-    
-                width: 95%;
-                height: 40px;
-                margin-top: 3vh;
-                border-radius: 10px;
-                border: 1px solid black;
-                position: relative;
-                @include font-style($Manrope, 20px, 400);
-                text-align: start;
-                cursor: pointer;
-    
-                summary {
-    
-                    list-style: none; 
-                    padding: 8px 9px 0 9px ;
-    
-                }
-    
-                summary::after {
-    
-                    content: url('../../../../../public/chevron-down.svg');
-                    position: absolute;
-                    right: 10px;
-                    top: 50%;
-                    transform: translateY(-50%);
-    
-                }
-    
-                .drop-down-list {
-    
-                    position: absolute;
-                    width: 100%;
-    
-                }
-            }    
+              
 
         }
         .tariffsCard:nth-child(3) {
@@ -185,7 +150,7 @@
 
            }
 
-           button {
+           .button1 {
 
             @include font-style($Comfortaa, 16px, 500);
             color: white;
@@ -201,43 +166,50 @@
 
            }
 
-            details {
+            
 
-            width: 95%;
-            height: 40px;
-            margin-top: 5vh;
-            border-radius: 10px;
-            border: 1px solid black;
-            position: relative;
-            @include font-style($Manrope, 16px, 400);
-            text-align: start;
-            cursor: pointer;
 
-            summary {
 
-                list-style: none; 
-                padding: 8px 9px 0 9px ;
 
-            }
 
-            summary::after {
 
-                content: url('../../../../../public/chevron-down.svg');
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
+            // details {
 
-            }
+            // width: 95%;
+            // height: 40px;
+            // margin-top: 5vh;
+            // border-radius: 10px;
+            // border: 1px solid black;
+            // position: relative;
+            // @include font-style($Manrope, 16px, 400);
+            // text-align: start;
+            // cursor: pointer;
+            
 
-            .drop-down-list {
+            // summary {
 
-                position: absolute;
-                width: 100%;
+            //     list-style: none; 
+            //     padding: 8px 9px 0 9px ;
 
-            }
+            // }
 
-           }
+            // summary::after {
+
+            //     content: url('../../../../../public/chevron-down.svg');
+            //     position: absolute;
+            //     right: 10px;
+            //     top: 50%;
+            //     transform: translateY(-50%);
+
+            // }
+
+            // .drop-down-list {
+
+                
+
+            // }
+
+        //    }
 
         }
 
