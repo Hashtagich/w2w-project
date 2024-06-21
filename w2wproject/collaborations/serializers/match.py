@@ -1,15 +1,18 @@
 from rest_framework import serializers
-from .models import Like, Match, Chat, Message
+from collaborations.models import Like, Match, Chat, Message
+
 
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = '__all__'
 
+
 class MatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Match
         fields = '__all__'
+
 
 class ChatSerializer(serializers.ModelSerializer):
     participants = serializers.ReadOnlyField()
@@ -17,6 +20,7 @@ class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
         fields = '__all__'
+
 
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Like(models.Model):
     from_brand = models.ForeignKey('brands.Brand', related_name='given_likes', on_delete=models.CASCADE)
     to_brand = models.ForeignKey('brands.Brand', related_name='received_likes', on_delete=models.CASCADE)
@@ -29,6 +30,7 @@ class Like(models.Model):
             else:
                 Chat.objects.get_or_create(match=match)
 
+
 class Match(models.Model):
     brand1 = models.ForeignKey('brands.Brand', related_name='matches_as_brand1', on_delete=models.CASCADE)
     brand2 = models.ForeignKey('brands.Brand', related_name='matches_as_brand2', on_delete=models.CASCADE)
@@ -45,6 +47,7 @@ class Match(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
+
 class Chat(models.Model):
     match = models.OneToOneField(Match, related_name='chat', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -59,6 +62,7 @@ class Chat(models.Model):
     @property
     def participants(self):
         return [self.match.brand1, self.match.brand2]
+
 
 class Message(models.Model):
     chat = models.ForeignKey(Chat, related_name='messages', on_delete=models.CASCADE)
