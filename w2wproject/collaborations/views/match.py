@@ -1,6 +1,6 @@
-from collaborations.models import Like, Match, Chat, Message
+from collaborations.models import Like, Match
 from rest_framework import viewsets
-from collaborations.serializers.match import LikeSerializer, MatchSerializer, ChatSerializer, MessageSerializer
+from collaborations.serializers.match import LikeSerializer, MatchSerializer
 
 
 class LikeViewSet(viewsets.ModelViewSet):
@@ -13,11 +13,11 @@ class MatchViewSet(viewsets.ModelViewSet):
     serializer_class = MatchSerializer
 
 
-class ChatViewSet(viewsets.ModelViewSet):
-    queryset = Chat.objects.all()
-    serializer_class = ChatSerializer
-
-
-class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
+# class ChatViewSet(viewsets.ModelViewSet):
+#     queryset = Chat.objects.all()
+#     serializer_class = ChatSerializer
+#
+#
+# class MessageViewSet(viewsets.ModelViewSet):
+#     queryset = Message.objects.all()
+#     serializer_class = MessageSerializer

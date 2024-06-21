@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import TabularInline
 from .models import collaboration
 from brands.models import brand
-from .models.match import Like, Match, Chat, Message
+from .models.match import Like, Match
 
 
 # Register your models here.
@@ -55,5 +55,5 @@ class TaskAdmin(admin.ModelAdmin):
 
 admin.site.register(Like)
 admin.site.register(Match)
-admin.site.register(Chat)
-admin.site.register(Message)
+# admin.site.register(Chat)
+# admin.site.register(Message)

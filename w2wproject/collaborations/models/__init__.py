@@ -9,6 +9,6 @@ __all__ = [
     'Task',
     'Like',
     'Match',
-    'Chat',
-    'Message'
+    # 'Chat',
+    # 'Message'
 ]

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from collaborations.models import Like, Match, Chat, Message
+from collaborations.models import Like, Match
 
 
 class LikeSerializer(serializers.ModelSerializer):
@@ -14,15 +14,15 @@ class MatchSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ChatSerializer(serializers.ModelSerializer):
-    participants = serializers.ReadOnlyField()
-
-    class Meta:
-        model = Chat
-        fields = '__all__'
-
-
-class MessageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Message
-        fields = '__all__'
+# class ChatSerializer(serializers.ModelSerializer):
+#     participants = serializers.ReadOnlyField()
+#
+#     class Meta:
+#         model = Chat
+#         fields = '__all__'
+#
+#
+# class MessageSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Message
+#         fields = '__all__'
