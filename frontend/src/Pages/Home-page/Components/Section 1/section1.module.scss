@@ -2,21 +2,18 @@
 @import '../../../../variables.scss';
 
 .main {
-
-    padding: 38px 0 0 80px;
-
     &__container {
-
+        @include centered-block (1280px);
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12vw;
         min-height: 700px;
-        @include centered-block (1280px);
-
+        // background-image: url('../../../../../public/ellipse-blue.png');
+        // background-repeat: no-repeat;
+        // background-position: left 0px top 20%;
     }
 
     &__title {
-        margin-top: 180px;
+        margin-top: 125px;
 
         img {
             cursor: pointer;
@@ -24,49 +21,51 @@
     }
 
     &__registration {
-        
-        display: grid;
-        grid-template-rows: 2fr 1fr;
-
+        padding: 0 165px 0px 94px;
 
         .images {
             position: relative;
+            padding-top: 397px;
 
             .img1 {
                 position: absolute;
-                left: 40%;
+                left: 83%;
+                top: 10%;
             }
 
             .img2 {
                 position: absolute;
-                left: 20%;
-                top: 50%;
+                left: 39%;
+                top: 60%;
             }
 
             .img3 {
                 position: absolute;
-                left: 60%;
-                top: 50%;
+                left: 113%;
+                top: 61%;
             }
 
-            }
+        }
 
-            p {
-                 @include font-style($Manrope, 20px, 500);
-                 margin-bottom: 24px;
-            }
+        p {
+            @include font-style($Manrope, 20px, 500);
+            color: #0C0F20;
+            line-height: 126%;
+            letter-spacing: 0.8px;
+            margin-bottom: 24px;
+        }
 
-            button {
-                @include font-style($Comfortaa, 20px, 500);
-                color: white;
-                background-color: #2E3B81;
-                border: none;
-                border-radius: 8px;
-                min-height: 56px;
-                min-width: 311px;
-                cursor: pointer;
-                letter-spacing: 2px;
-            }
+        button {
+            @include font-style($Comfortaa, 20px, 500);
+            color: white;
+            background-color: #2E3B81;
+            border: none;
+            border-radius: 8px;
+            min-height: 56px;
+            min-width: 311px;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
 
     }
 }

@@ -17,13 +17,13 @@ const Section1 = () => {
                 </div>
                 <div className={style['main__registration']}>
                     <div className={style.images}>
-                    <img src="./star1.svg" alt="star1" className={style.img1}/>
-                    <img src="./star2.svg" alt="star2" className={style.img2}/>
-                    <img src="./star3.svg" alt="star3" className={style.img3}/>
+                        <img src="./star1.svg" alt="star1" className={style.img1} />
+                        <img src="./star2.svg" alt="star2" className={style.img2} />
+                        <img src="./star3.svg" alt="star3" className={style.img3} />
                     </div>
                     <div className={style.registration}>
-                    <p>Объединяем бренды по ценностям и<br/> помогаем делать коллабы для роста<br/> бизнеса</p>
-                    <button onClick={goToReg}>Зарегистрироваться</button>
+                        <p>Объединяем бренды по ценностям и<br /> помогаем делать коллабы для роста<br /> бизнеса</p>
+                        <button onClick={goToReg}>Зарегистрироваться</button>
                     </div>
                 </div>
             </div>
