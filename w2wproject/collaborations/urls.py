@@ -1,6 +1,6 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from .views import LikeViewSet, MatchViewSet, ChatViewSet, MessageViewSet
+from collaborations.views.match import LikeViewSet, MatchViewSet, ChatViewSet, MessageViewSet
 from collaborations.views.collaboration import CollaborationAPIList, CollaborationAPIRetrieve
 
 router = DefaultRouter()
