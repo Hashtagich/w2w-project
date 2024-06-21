@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
-
 from .models import collaboration
 from brands.models import brand
+from .models.match import Like, Match, Chat, Message
 
 
 # Register your models here.
@@ -50,3 +50,10 @@ class TaskAdmin(admin.ModelAdmin):
         'datetime_start', 'datetime_completion',
         'datetime_finish',
     )
+
+
+
+admin.site.register(Like)
+admin.site.register(Match)
+admin.site.register(Chat)
+admin.site.register(Message)

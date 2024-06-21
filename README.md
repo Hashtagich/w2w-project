@@ -78,16 +78,15 @@ ___
 | 5  | Антонова Анна          | UX/UI дизайнер                    | @AAntonovaS          | https://www.behance.net/aantonovas                |
 | 6  | Ширинова Валерия       | Графический дизайнер              | @Prosto_leraHI       | https://www.behance.net/4780521d                  |
 | 7  | Тимофеева Янина        | Графический дизайнер              | @YaninaIrkutsk       | https://www.behance.net/8e715f7e                  |
-| 8  | Ангапов Николай        | Графический дизайнер и веб-дизайн | @NikolayAng69        | https://www.behance.net/nick_angapov              |
-| 9  | Зайцев Антон           | Backend разработчик               | @BlackMarvel         | https://github.com/Hashtagich                     |
-| 10 | Царенко Иван           | Backend разработчик               | @mp3suuri            | https://github.com/SwaGGa1337                     |
-| 11 | Александрова Екатерина | Backend разработчик               | @KateAlexandrova     | https://github.com/aliensen36                     |
-| 12 | Караханов Александр    | Backend разработчик               | @geographOne         | https://github.com/Gitgeograph                    |
-| 13 | Кочанова Мария         | Frontend разработчик              | @kochanovama         | https://github.com/MariaKochanova                 |
-| 14 | Дергачев Алексей       | Frontend разработчик              | @nkoidcool           |                                                   |
-| 15 | Валиахметова Миляуша   | Аналитик данных                   | @milya_v             |                                                   |
-| 16 | Застанкевич Ольга      | Тестировщик                       | @Zastankevich        |                                                   |
-| 17 | Шестаков Дмитрий       | Тестировщик-автоматизатор         | @dima_hero1          |                                                   |
+| 8  | Зайцев Антон           | Backend разработчик               | @BlackMarvel         | https://github.com/Hashtagich                     |
+| 9  | Царенко Иван           | Backend разработчик               | @mp3suuri            | https://github.com/SwaGGa1337                     |
+| 10 | Александрова Екатерина | Backend разработчик               | @KateAlexandrova     | https://github.com/aliensen36                     |
+| 11 | Караханов Александр    | Backend разработчик               | @geographOne         | https://github.com/Gitgeograph                    |
+| 12 | Кочанова Мария         | Frontend разработчик              | @kochanovama         | https://github.com/MariaKochanova                 |
+| 13 | Дергачев Алексей       | Frontend разработчик              | @nkoidcool           | https://github.com/Allex2689                      |
+| 14 | Валиахметова Миляуша   | Аналитик данных                   | @milya_v             |                                                   |
+| 15 | Застанкевич Ольга      | Тестировщик                       | @Zastankevich        |                                                   |
+| 16 | Шестаков Дмитрий       | Тестировщик-автоматизатор         | @dima_hero1          | https://github.com/dimahero                       |
 
 </details>
 
