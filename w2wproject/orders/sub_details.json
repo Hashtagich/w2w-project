@@ -1,0 +1,23 @@
+{
+  "1": {
+  "period": "1",
+  "amount": {
+      "value": "100.00",
+      "currency": "RUB"
+      }
+  },
+  "2": {
+  "period": "6",
+  "amount": {
+      "value": "550.00",
+      "currency": "RUB"
+      }
+  },
+  "3": {
+  "period": "12",
+  "amount": {
+      "value": "1000.00",
+      "currency": "RUB"
+      }
+}
+}
