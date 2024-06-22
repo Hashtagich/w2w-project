@@ -12,6 +12,12 @@ const Section1 = () => {
     return (
         <div className={style.main} id='service'>
             <div className={style['main__container']}>
+                <div className={style.ellipse1}>
+                </div>
+                <div className={style.ellipse2}>
+                </div>
+                <div className={style.ellipse3}>
+                </div>
                 <div className={style['main__title']}>
                     <img src="./title.svg" alt="title" />
                 </div>

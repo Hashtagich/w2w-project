@@ -7,12 +7,45 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         min-height: 700px;
-        // background-image: url('../../../../../public/ellipse-blue.png');
-        // background-repeat: no-repeat;
-        // background-position: left 0px top 20%;
+        position: relative;
+
+        .ellipse1 {
+            width: 426px;
+            height: 332px;
+            position: absolute;
+            top: 19%;
+            left: -4%;
+            border-radius: 426px;
+            background: #6F95F5;
+            filter: blur(150px);
+        }
+
+        .ellipse2 {
+            width: 339px;
+            height: 296px;
+            position: absolute;
+            top: -16%;
+            left: 72%;
+            border-radius: 339px;
+            background: rgba(255, 167, 113, 0.44);
+            filter: blur(120.69999694824219px);
+        }
+
+        .ellipse3 {
+            width: 340px;
+            height: 234px;
+            position: absolute;
+            top: 63%;
+            left: 45%;
+            border-radius: 340px;
+            background: #F5E3B3;
+            filter: blur(120px);
+        }
     }
 
     &__title {
+        position: relative;
+        z-index: 5;
         margin-top: 125px;
 
         img {
@@ -22,6 +55,8 @@
 
     &__registration {
         padding: 0 165px 0px 94px;
+        position: relative;
+        z-index: 5;
 
         .images {
             position: relative;
@@ -66,6 +101,5 @@
             cursor: pointer;
             letter-spacing: 2px;
         }
-
     }
 }

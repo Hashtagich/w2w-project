@@ -3,7 +3,7 @@
 
 
 .container {
-	// @include centered-block(1280px);
+	@include centered-block(1280px);
     display: flex;
     justify-content: center;
     gap: 62px;
@@ -42,7 +42,7 @@
             position: absolute;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            transition: transform 1.5s ease;
+            transition: transform 1.3s ease;
             border-radius: 8px;
             display: flex;
             justify-content: center;
@@ -60,6 +60,22 @@
             color: #FFF;
             transform: perspective(600px) rotateY(0);
         }
+
+        // .front:nth-child(1) {
+        //     background-image: url('/card-1-front.png');
+        // }
+
+        // .front:nth-child(2) {
+        //     background-image: url('/public/card-2-front.png');
+        // }
+
+        // .front:nth-child(3) {
+        //     background-image: url('/public/card-3-front.png');
+        // }
+
+        // .front:nth-child(4) {
+        //     background-image: url('/public/card-4-fronе.png');
+        // }
 
         .back {
             transform: perspective(600px) rotateY(180deg);
