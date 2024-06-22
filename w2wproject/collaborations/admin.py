@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
-from .models import collaboration
 from brands.models import brand
-from .models.match import Like, Match, Chat, Message
+from collaborations.models import Like, Match, Task, FotoCollaboration, Collaboration
 
 
 # Register your models here.
@@ -11,7 +10,7 @@ from .models.match import Like, Match, Chat, Message
 # INLINES
 
 class CollaborationFotoInline(TabularInline):
-    model = collaboration.FotoCollaboration
+    model = FotoCollaboration
     fields = ('foto',)
 
 
@@ -21,7 +20,7 @@ class BrandInline(TabularInline):
 
 
 class TaskInline(TabularInline):
-    model = collaboration.Task
+    model = Task
     # readonly_fields = ('datetime_create',)
     fields = (
         'name', 'status', 'description', 'author',
@@ -32,7 +31,7 @@ class TaskInline(TabularInline):
 
 # MODELS
 
-@admin.register(collaboration.Collaboration)
+@admin.register(Collaboration)
 class CollaborationAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'description', 'number_subscribers', 'average_check', 'avatar_id', 'result')
 
@@ -43,7 +42,7 @@ class CollaborationAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(collaboration.Task)
+@admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     fields = (
         'name', 'status', 'description', 'author',
@@ -52,8 +51,5 @@ class TaskAdmin(admin.ModelAdmin):
     )
 
 
-
 admin.site.register(Like)
 admin.site.register(Match)
-admin.site.register(Chat)
-admin.site.register(Message)
