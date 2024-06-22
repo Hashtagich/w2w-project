@@ -59,23 +59,36 @@
             background: #47579BE5;
             color: #FFF;
             transform: perspective(600px) rotateY(0);
-        }
 
+            &:nth-child(1) {
+                background-image: url('~/public/card-1-front.png');
+            }
+            &:nth-child(2) {
+                background-image: url('~/public/card-2-front.png');
+            }
+          
+            .ellipse {
+                width: 100%;
+            }
+
+        }
         // .front:nth-child(1) {
-        //     background-image: url('/card-1-front.png');
+        //     background-image: url('~/public/card-1-front.png');
         // }
 
         // .front:nth-child(2) {
-        //     background-image: url('/public/card-2-front.png');
+        //     background-image: url('~/public/card-2-front.png');
         // }
 
         // .front:nth-child(3) {
-        //     background-image: url('/public/card-3-front.png');
+        //     background-image: url('~/public/card-3-front.png');
         // }
 
         // .front:nth-child(4) {
-        //     background-image: url('/public/card-4-fronе.png');
+        //     background-image: url('~/public/card-4-front.png');
         // }
+
+        
 
         .back {
             transform: perspective(600px) rotateY(180deg);
@@ -83,6 +96,7 @@
             flex-direction: column;
             background: #D9D9D9;
             color: #000;
+            background-image: url('~/public/card-1-back.png');
         }
     }
 }
