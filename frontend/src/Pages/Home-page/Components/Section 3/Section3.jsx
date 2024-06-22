@@ -12,6 +12,9 @@ const Section3 = () => {
                 <p>Придумывай <br />и креативь</p>
                 <p>Создай <br />коллабу</p>
                 <button>Создать коллабу</button>
+                <div className={style.ellipse1}></div>
+                <div className={style.ellipse2}></div>
+                <div className={style.ellipse3}></div>
             </div>
         </div>
     )
