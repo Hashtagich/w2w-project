@@ -1,75 +1,24 @@
-from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema
 from rest_framework import status
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from brands.models import Brand
 from brands.serializers.brand import (BrandSerializer, BrandModifierUpSerializer, BrandLevelUpSerializer,
                                       BrandBalanceUpSerializer, BrandExperienceUpSerializer)
-from accounts.models import User
-from rest_framework import viewsets, filters, generics, mixins
-from drf_spectacular.utils import extend_schema_view, extend_schema
 
 
-@extend_schema_view(
-    get=extend_schema(summary='Получение бренда по его ID', tags=['Бренды'])
-)
-class BrandAPIRetrieve(generics.RetrieveAPIView):
+@extend_schema(tags=['Бренд'])
+class BrandViewSet(viewsets.ModelViewSet):
     serializer_class = BrandSerializer
     queryset = Brand.objects.all()
-
-
-@extend_schema_view(
-    get=extend_schema(summary='Получение всех брендов', tags=['Бренды'])
-)
-class BrandAPIList(generics.ListAPIView):
-    serializer_class = BrandSerializer
-    queryset = Brand.objects.all()
-
-
-@extend_schema(
-    summary="Изменение модификатора бренда",
-    tags=["Бренды"]
-)
-@api_view(['PATCH'])
-def brand_modifier_up(request, pk):
-    try:
-        brand = Brand.objects.get(pk=pk)
-    except Brand.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.method == 'PATCH':
-        serializer = BrandModifierUpSerializer(brand, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            updated_brand_serializer = BrandSerializer(brand)
-            return Response(updated_brand_serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@extend_schema(
-    summary="Изменение уровня бренда",
-    tags=["Бренды"]
-)
-@api_view(['PATCH'])
-def brand_level_up(request, pk):
-    try:
-        brand = Brand.objects.get(pk=pk)
-    except Brand.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.method == 'PATCH':
-        serializer = BrandLevelUpSerializer(brand, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            updated_brand_serializer = BrandSerializer(brand)
-            return Response(updated_brand_serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class BrandLevelUpView(APIView):
     serializer_class = BrandLevelUpSerializer
 
-    @extend_schema(summary="Изменение уровня бренда", tags=["Бренды"])
+    @extend_schema(summary="Изменение уровня бренда", tags=["Бренд"])
     def patch(self, request, pk):
         try:
             brand = Brand.objects.get(pk=pk)
@@ -87,7 +36,7 @@ class BrandLevelUpView(APIView):
 class BrandModifierUpView(APIView):
     serializer_class = BrandModifierUpSerializer
 
-    @extend_schema(summary="Изменение модификатора бренда", tags=["Бренды"])
+    @extend_schema(summary="Изменение модификатора бренда", tags=["Бренд"])
     def patch(self, request, pk):
         try:
             brand = Brand.objects.get(pk=pk)
@@ -105,7 +54,7 @@ class BrandModifierUpView(APIView):
 class BrandBalanceUpView(APIView):
     serializer_class = BrandBalanceUpSerializer
 
-    @extend_schema(summary="Изменение баланса бренда", tags=["Бренды"])
+    @extend_schema(summary="Изменение баланса бренда", tags=["Бренд"])
     def patch(self, request, pk):
         try:
             brand = Brand.objects.get(pk=pk)
@@ -123,7 +72,7 @@ class BrandBalanceUpView(APIView):
 class BrandExperienceUpView(APIView):
     serializer_class = BrandExperienceUpSerializer
 
-    @extend_schema(summary="Изменение опыта бренда", tags=["Бренды"])
+    @extend_schema(summary="Изменение опыта бренда", tags=["Бренд"])
     def patch(self, request, pk):
         try:
             brand = Brand.objects.get(pk=pk)
@@ -137,7 +86,7 @@ class BrandExperienceUpView(APIView):
             return Response(updated_brand_serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# наследование (в разработке)
+# реализация представлений через наследование (в разработке)
 # class BrandUpdateView(APIView):
 #
 #     def patch(self, request, pk, serializer_class):

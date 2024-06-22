@@ -1,14 +1,17 @@
-from django.urls import path, include, re_path
-from rest_framework.routers import DefaultRouter
-from brands.views.other import PredictionAPIView
-from brands.views.brand import (BrandAPIRetrieve, BrandAPIList, BrandLevelUpView, BrandBalanceUpView,
-                                BrandExperienceUpView, BrandModifierUpView)
-from brands.views.social_network import *
+from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from rest_framework.routers import DefaultRouter
+
+from brands.views.brand import (BrandViewSet, BrandLevelUpView, BrandBalanceUpView, BrandExperienceUpView,
+                                BrandModifierUpView)
+from brands.views.other import PredictionAPIView
 
 router = DefaultRouter()
 
+router.register(r'brand', BrandViewSet)
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
@@ -16,8 +19,6 @@ urlpatterns = [
 
 # brand
 urlpatterns += [
-    path('brands/', BrandAPIList.as_view(), name='brands'),
-    path('brand/<int:pk>/', BrandAPIRetrieve.as_view(), name='brand'),
     path('brand/<int:pk>/modifier_up/', BrandModifierUpView.as_view(), name='brand-modifier-up'),
     path('brand/<int:pk>/level_up/', BrandLevelUpView.as_view(), name='brand-level-up'),
     path('brand/<int:pk>/balance_up/', BrandBalanceUpView.as_view(), name='brand-balance-up'),
@@ -29,8 +30,3 @@ urlpatterns += [
 urlpatterns += [
     path('prediction/', PredictionAPIView.as_view(), name='prediction'),
 ]
-
-# # social_network
-# urlpatterns += [
-#     path('social_network/', SocialNetworkAPIList.as_view(), name='social_network'),
-# ]

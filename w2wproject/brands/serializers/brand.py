@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from brands.models import Brand, Interest, Category, FotoBrand, SocialNetwork
+from brands.models import Brand, Interest, Category, FotoBrand
 from brands.serializers.other import (AverageCheckSerializer, NumberSubscribersSerializer, BaseSerializer)
 from brands.serializers.social_network import SocialNetworkBrandSerializer
 
