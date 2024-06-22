@@ -5,6 +5,7 @@ from .command_for_social_network import clear_name_social_network_db
 
 from .command_for_brand import clear_category_db
 from .command_for_accounts import clear_role_db
+from .command_for_news import clear_news_db
 
 
 class Command(BaseCommand):
@@ -44,6 +45,10 @@ class Command(BaseCommand):
         count = clear_role_db()
         self.stdout.write(self.style.SUCCESS(
             f'{count} records deleted from the database.\nЗаписи Ролей в количестве {count} шт. удалены из базы данных.'))
+
+        count = clear_news_db()
+        self.stdout.write(self.style.SUCCESS(
+            f'{count} records deleted from the database.\nЗаписи Новостей в количестве {count} шт. удалены из базы данных.'))
 
         # End
         self.stdout.write(self.style.SUCCESS(

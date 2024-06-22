@@ -4,6 +4,7 @@ from .command_for_other import create_average_check_db, create_number_subscriber
 from .command_for_social_network import create_name_social_network_db
 from .command_for_brand import create_category_db
 from .command_for_accounts import create_role_db
+from .command_for_news import create_news_db
 
 
 class Command(BaseCommand):
@@ -43,6 +44,10 @@ class Command(BaseCommand):
         create_role_db()
         self.stdout.write(self.style.SUCCESS(
             'Initialize db Role successfully.\nИнициализация базы данных Роли выполнена успешно.'))
+
+        create_news_db()
+        self.stdout.write(self.style.SUCCESS(
+            'Initialize db Post successfully.\nИнициализация базы данных Новости выполнена успешно.'))
 
         self.stdout.write(self.style.SUCCESS(
             'Initialize db command executed successfully.\nКоманда инициализации базы данных выполнена успешно.'))
