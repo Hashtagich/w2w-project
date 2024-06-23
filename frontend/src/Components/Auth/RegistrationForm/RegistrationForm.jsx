@@ -44,6 +44,12 @@ const RegistrationForm = () => {
 
     return (
         <form className={style.registration} onSubmit={sendData}>
+             <div className={style.ellipse1}>
+                </div>
+                <div className={style.ellipse2}>
+                </div>
+                <div className={style.ellipse3}>
+                </div>
             <div className={style['registration__form']}>
                 <img src="./M.svg" alt="logo" />
                 <h1>Добро пожаловать <br />в W2W Match</h1>

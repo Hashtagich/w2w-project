@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     if (isAuth) {
-      fetch('http://127.0.0.1:8000/api/users/', {
+      fetch('http://127.0.0.1:8000/api/users/me/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

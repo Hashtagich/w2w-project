@@ -6,6 +6,41 @@
     @include centered-block (1280px);
     display: flex;
     margin-top: 50px;
+    position: relative;
+
+    .ellipse1 {
+        width: 426px;
+        height: 332px;
+        position: absolute;
+        top: 6%;
+        left: -4%;
+        border-radius: 426px;
+        background: #6F95F5;
+        filter: blur(150px);
+        
+    }
+
+    .ellipse2 {
+        width: 339px;
+        height: 296px;
+        position: absolute;
+        top: -10%;
+        left: 72%;
+        border-radius: 339px;
+        background: rgba(255, 167, 113, 0.44);
+        filter: blur(80.69999694824219px);
+    }
+
+    .ellipse3 {
+        width: 340px;
+        height: 234px;
+        position: absolute;
+        top: 90%;
+        left: 70%;
+        border-radius: 340px;
+        background: #F5E3B3;
+        filter: blur(50px);
+    }
 
 
     .navigation {
@@ -19,6 +54,7 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        z-index: 1;
         
         img {
             cursor: pointer;
@@ -31,6 +67,8 @@
         width: 100%;
         padding: 40px 108px;
         width: 100%;
+        z-index: 1;
+        margin-bottom: 200px;
 
         p {
             @include font-style($Comfortaa, 16px, 400);

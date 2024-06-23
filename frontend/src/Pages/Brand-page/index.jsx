@@ -4,6 +4,12 @@ import PhotoInput from './Components/PhotoInput/PhotoInput';
 const BrandPage = () => {
     return (
         <div className={style.container}>
+              <div className={style.ellipse1}>
+                </div>
+                <div className={style.ellipse2}>
+                </div>
+                <div className={style.ellipse3}>
+                </div>
             <div className={style.navigation}>
                 <img src="./home.svg" alt="home" />
                 <img src="./user.svg" alt="user" />

@@ -21,7 +21,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/users/', {
+            const response = await fetch('http://127.0.0.1:8000/api/users/me/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const LoginForm = () => {
                 const data = await response.json();
                 setIsAuth(true);
                 localStorage.setItem('token', data.token);
-                navigate('/');
+                navigate('/brand-page');
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Ошибка при авторизации');
@@ -51,6 +51,9 @@ const LoginForm = () => {
 
     return (
         <form className={style.login} onSubmit={sendData}>
+            <div className={style.ellipse1}></div>
+            <div className={style.ellipse2}></div>
+            <div className={style.ellipse3}></div>
             <div className={style['login__form']}>
                 <img src="./M.svg" alt="logo" />
                 <h1>Добро пожаловать <br />в W2W Match</h1>
