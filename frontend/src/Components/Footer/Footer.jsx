@@ -2,7 +2,7 @@ import style from './footer.module.scss';
 
 const Footer = () => {
     return (
-        <footer className={style.footer}>
+        <footer className={style.footer} id="contacts">
             <div className={style['footer__container']}>
                 <div className={style.info1}>
                     <p>Услуги оказывает <br/>ИП Баранова Елизавета Дмитриевна</p>

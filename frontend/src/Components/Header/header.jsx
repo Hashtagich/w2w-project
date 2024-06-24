@@ -27,9 +27,9 @@ const Header = () => {
                     <ul>
                         <a href="#service">О сервисе</a>
                         <a href="#tariffs">Тарифы</a>
-                        <a href="">Вопросы</a>
+                        <a href="#questions">Вопросы</a>
                         <a href="#reviews">Отзывы</a>
-                        <a href="">Контакты</a>
+                        <a href="#contacts">Контакты</a>
                     </ul>
                 </nav>
                 <div className={style['header__auth']}>
