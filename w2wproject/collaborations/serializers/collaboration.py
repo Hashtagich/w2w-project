@@ -14,6 +14,7 @@ class TaskSerializer(serializers.ModelSerializer):
     datetime_completion = serializers.DateTimeField(format='%d.%m.%Y %H:%M:%S')
     datetime_finish = serializers.DateTimeField(format='%d.%m.%Y %H:%M:%S')
     datetime_create = serializers.DateTimeField(format='%d.%m.%Y %H:%M:%S')
+    # author =
 
     class Meta:
         model = Task

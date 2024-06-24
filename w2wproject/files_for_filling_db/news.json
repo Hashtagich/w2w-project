@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Заголовок Статьи №1",
+    "text": "Текст Статьи №1",
+    "link": "https://www.phind.com"
+  },
+  {
+    "title": "Заголовок Статьи №2",
+    "text": "Текст Статьи №2",
+    "link": "https://www.phind.com"
+  },
+  {
+    "title": "Заголовок Статьи №3",
+    "text": "Текст Статьи №3",
+    "link": "https://www.phind.com"
+  }
+]

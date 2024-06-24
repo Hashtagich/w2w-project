@@ -1,17 +1,17 @@
 [
   {
-    "name": "Базовый",
-    "price": 64000,
-    "description": "Некое описание тарифа"
+    "name": "Lite Match",
+    "price": 12000,
+    "description": "Становишься резидентом сервиса."
   },
   {
-    "name": "Комфорт",
-    "price": 128000,
-    "description": "Некое описание тарифа"
+    "name": "Comfort Match",
+    "price": 24000,
+    "description": "Знаешь, кто тебя лайкнул в моменте."
   },
   {
-    "name": "Премиум",
-    "price": 256000,
-    "description": "Некое описание тарифа"
+    "name": "Business Match",
+    "price": 60000,
+    "description": "Мы активно помогаем с коллабой."
   }
 ]

@@ -19,15 +19,17 @@ def get_image_path_collaboration(instance, filename):
 class Collaboration(models.Model):
     """Модель коллаборации."""
     # CHOICE_STATUS = (
-    #     ("", ""),
-    #     ("", ""),
-    #     ("", ""),
-    #     ("", ""),
-    #
+    #     ("new", 'новый'),
+    #     ("agreement", "Согласование с другим участником"),
+    #     ("pending", 'модератор взял в работу'),
+    #     ("accepted", 'модерация прошла успешно'),
+    #     ("rejected", 'модерация прошла, информация не принята'),
+    #     ("active", "Активна"),
+    #     ("archive", "Архив"),
     # )
 
     name = models.CharField("Название коллаборации", max_length=30, null=True)
-    # status = models.CharField("Статус", max_length=50, choices=CHOICE_STATUS, default="")
+    # status = models.CharField("Статус", max_length=50, choices=CHOICE_STATUS, default="new")
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_collaboration, blank=True, null=True)
     description = models.TextField("Описание коллаборации", null=True, blank=True)
     number_subscribers = models.ForeignKey(NumberSubscribers, on_delete=models.PROTECT,
