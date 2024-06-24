@@ -4,24 +4,16 @@
 .footer {
     background-color: #D9D9D999;
     min-height: 254px;
-    padding-top: 25px;
-    @include font-style($Manrope, 20px, 300);
-    
-    
+    padding-top: 20px;
+    @include font-style($Manrope, 20px, 300);    
     
     &__container {
         @include centered-block (1280px);
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
+        justify-content: space-evenly;
+        align-items: center;       
 
-
-       
-
-        .info1 {
-           
-            
+        .info1 {   
             p {
                 margin-bottom: 20px;
             }
@@ -32,12 +24,10 @@
         }
 
         .info2 {
-
             img {
-                margin-right: 5px;
+                margin-right: 11px;
             }
             
-
             p {
                 margin-bottom: 10px;
             }
