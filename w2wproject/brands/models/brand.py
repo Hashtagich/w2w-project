@@ -33,7 +33,8 @@ class Brand(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE)
     number_subscribers = models.ForeignKey(NumberSubscribers, on_delete=models.PROTECT,
                                            verbose_name="Кол-во подписчиков", blank=True)
-    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек', blank=True, null=True)
+    average_check = models.ForeignKey(AverageCheck, on_delete=models.PROTECT, verbose_name='Средний чек', blank=True,
+                                      null=True)
     avatar_id = models.ImageField("Аватар", upload_to=get_image_path_brand, blank=True, null=True)
     value = models.CharField("Ценности бренда", max_length=256, null=True, blank=True)
     target_audience = models.TextField("Целевая аудитория", null=True, blank=True)
@@ -181,10 +182,10 @@ class BrandCollaboration(models.Model):
 class BrandInterest(models.Model):
     """Модель связи бренда и интереса."""
     brand_id = models.ForeignKey(
-        Brand, models.PROTECT, 'brands_interests', verbose_name='ID бренда'
+        Brand, models.PROTECT, related_name='brands_interests', verbose_name='ID бренда'
     )
     interest_id = models.ForeignKey(
-        Interest, models.PROTECT, 'interests', verbose_name='ID интереса'
+        Interest, models.PROTECT, related_name='interests', verbose_name='ID интереса'
     )
 
     def __str__(self):
