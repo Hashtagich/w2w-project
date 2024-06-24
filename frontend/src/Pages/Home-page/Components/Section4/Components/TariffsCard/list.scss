@@ -4,7 +4,7 @@
 
 .dropdown {
   position: relative;
-  width: 100%;
+  width: 91%;
   @include font-style('Roboto', 12px, 400);
 }
 
@@ -22,9 +22,9 @@
 
 
   &::after {
-      content: url('../../../../../../../public/Vector.svg');
+    content: url('../../../../../../../public/Vector.svg');
   }
-  
+
 }
 
 
@@ -60,12 +60,15 @@
 
 .dropdown-menu-up {
   bottom: 100%;
-  display: none; /* Скрываем меню по умолчанию */
-  transition: transform 0.3s ease-out; /* Добавляем анимацию */
+  display: none;
+  /* Скрываем меню по умолчанию */
+  transition: transform 0.3s ease-out;
+  /* Добавляем анимацию */
 }
 
 .dropdown-menu-up.dropdown-open {
-  display: flex; /* Показываем меню, когда оно открыто */
+  display: flex;
+  /* Показываем меню, когда оно открыто */
   animation: slide-up 0.3s ease-out;
 }
 
@@ -73,6 +76,7 @@
   from {
     transform: translateY(10px);
   }
+
   to {
     transform: translateY(0);
   }

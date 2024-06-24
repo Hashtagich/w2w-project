@@ -7,7 +7,7 @@ const Tariff = ({ info }) => {
   return (
     <div className={style.tariffsCard}>
       <h1>{info.title1}</h1>
-      <h1>{info.title2}</h1>
+      <h2>{info.title2}</h2>
       <p className={style.text1}>{info.text1}</p>
       <p className={style.text2}>{info.text2}</p>
       <p className={style.price}>{info.price}</p>
