@@ -8,6 +8,7 @@ import RegistrationForm from './Components/Auth/RegistrationForm/RegistrationFor
 import UserContext from './Contexts/UserContext';
 import BrandPage from './Pages/Brand-page/index';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -48,6 +49,7 @@ function App() {
           <Route path="/registration" element={<RegistrationForm />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Footer/>
       </div>
     </UserContext.Provider>
   );

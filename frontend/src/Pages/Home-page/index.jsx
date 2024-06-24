@@ -9,14 +9,14 @@ import style1 from './sectors.module.scss';
 
 const HomePage = () => {
     return (
-        <div className={style1.allSectors}>
+        <main className={style1.allSectors}>
            <Section1/>
            <Section2/>
            <Section3/>
            <Section4/>
            <Section5/>
            <Accordion/>
-        </div>
+        </main>
     )
 }
 
