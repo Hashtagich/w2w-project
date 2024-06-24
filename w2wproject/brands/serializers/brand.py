@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from brands.models import Brand, Interest, Category, FotoBrand
+from brands.models import Brand, Interest, Category, FotoBrand, BrandInterest
 from brands.serializers.other import (AverageCheckSerializer, NumberSubscribersSerializer, BaseSerializer)
 from brands.serializers.social_network import SocialNetworkBrandSerializer
 
@@ -55,7 +55,7 @@ class BrandSerializer(serializers.ModelSerializer):
             'datetime_create',
             'interests',
             'category',
-            # 'collaboration',
+            'collaboration',
             'brand_foto',
             'brand_social_network',
         )
