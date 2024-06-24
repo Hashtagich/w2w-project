@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from collaborations.views.match import LikeViewSet, MatchViewSet
-from collaborations.views.collaboration import CollaborationAPIList, CollaborationAPIRetrieve
+from collaborations.views.collaboration import CollaborationViewSet, TaskViewSet
 
 router = DefaultRouter()
 
