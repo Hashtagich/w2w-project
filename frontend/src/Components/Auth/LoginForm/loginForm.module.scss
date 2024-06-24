@@ -82,7 +82,12 @@
                 border: none;
                 border-radius: 8px;
                 background-color: #D9D9D966;
-                height: 52px;
+                height: 52px; 
+            }
+
+            input::after {
+                content: url('../../../../public/closedEye.svg');
+                z-index: 100;
             }
 
         }

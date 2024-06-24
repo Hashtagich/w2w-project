@@ -29,7 +29,7 @@ const Accordion = () => {
     const [openId, setId] = useState(null);
 
     return (
-        <section className={style.container}>
+        <section className={style.container} id="questions">
             <h2 className={style.subtitle}>
                 частые вопросы
             </h2>
