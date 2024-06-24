@@ -6,6 +6,7 @@
     padding: 45px 181px 71px;
 
     .subtitle {
+        margin-bottom: 37px;
         @include font-style($Manrope, 35px, 500);
         color: #0F132A;
         text-transform: uppercase;
@@ -13,26 +14,32 @@
     }
 
     .accordion {
-        margin: 16px;
-        padding: 16px;
-        // background-color: #dcdcdc;
-        // border-radius: 7px;
+        counter-reset: number;
 
         .accordion-item {
             margin-bottom: 16px;
             background-color: #F3F3F3;
             border-radius: 10px;
+            position: relative;
+
+            &::before {
+                counter-increment: number;
+                content: "0" counter(number) " ";
+                position: absolute;
+                z-index: 2;
+            }
 
             .accordion-header {
                 position: relative;
                 width: 100%;
-                padding: 20px 60px 20px 30px;
+                padding: 18px 142px 20px 283px;;
                 background-color: #F3F3F3;
                 border: 0;
                 border-radius: 10px;
                 font-size: 22px;
                 text-align: left;
                 cursor: pointer;
+                @include font-style($Manrope, 24px, 600);
             }
         }
     }
