@@ -21,7 +21,7 @@ const RegistrationForm = () => {
 
     const sendData = async (event) => {
         event.preventDefault();
-
+        http://127.0.0.1:8000/api/jwt/create/
         try {
             const response = await fetch('http://127.0.0.1:8000/api/users/', {
                 method: 'POST',
@@ -32,7 +32,7 @@ const RegistrationForm = () => {
             });
 
             if (response.ok) {
-                navigate('/login');
+                navigate('/brand-page');
             } else {
                 const errorData = await response.json();
                 setError(errorData.message || 'Ошибка при регистрации');

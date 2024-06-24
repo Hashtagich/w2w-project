@@ -21,7 +21,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/users/me/', {
+            const response = await fetch('http://127.0.0.1:8000/api/jwt/create/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
