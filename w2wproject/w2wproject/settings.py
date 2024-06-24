@@ -38,6 +38,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 AUTH_USER_MODEL = 'accounts.User'
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -91,6 +92,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'w2wproject.wsgi.application'
+ASGI_APPLICATION = 'w2wproject.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 
 # Database

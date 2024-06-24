@@ -55,7 +55,7 @@ class BrandSerializer(serializers.ModelSerializer):
             'datetime_create',
             'interests',
             'category',
-            'collaboration',
+            # 'collaboration',
             'brand_foto',
             'brand_social_network',
         )
