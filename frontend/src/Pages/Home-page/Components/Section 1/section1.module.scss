@@ -1,0 +1,105 @@
+@import '../../../../mixins.scss';
+@import '../../../../variables.scss';
+
+.main {
+    &__container {
+        @include centered-block (1280px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 700px;
+        position: relative;
+
+        .ellipse1 {
+            width: 426px;
+            height: 332px;
+            position: absolute;
+            top: 19%;
+            left: -4%;
+            border-radius: 426px;
+            background: #6F95F5;
+            filter: blur(150px);
+        }
+
+        .ellipse2 {
+            width: 339px;
+            height: 296px;
+            position: absolute;
+            top: -16%;
+            left: 72%;
+            border-radius: 339px;
+            background: rgba(255, 167, 113, 0.44);
+            filter: blur(120.69999694824219px);
+        }
+
+        .ellipse3 {
+            width: 340px;
+            height: 234px;
+            position: absolute;
+            top: 63%;
+            left: 45%;
+            border-radius: 340px;
+            background: #F5E3B3;
+            filter: blur(120px);
+        }
+    }
+
+    &__title {
+        position: relative;
+        z-index: 5;
+        margin-top: 125px;
+
+        img {
+            cursor: pointer;
+        }
+    }
+
+    &__registration {
+        padding: 0 165px 0px 94px;
+        position: relative;
+        z-index: 5;
+
+        .images {
+            position: relative;
+            padding-top: 397px;
+
+            .img1 {
+                position: absolute;
+                left: 83%;
+                top: 10%;
+            }
+
+            .img2 {
+                position: absolute;
+                left: 39%;
+                top: 60%;
+            }
+
+            .img3 {
+                position: absolute;
+                left: 113%;
+                top: 61%;
+            }
+
+        }
+
+        p {
+            @include font-style($Manrope, 20px, 500);
+            color: #0C0F20;
+            line-height: 126%;
+            letter-spacing: 0.8px;
+            margin-bottom: 24px;
+        }
+
+        button {
+            @include font-style($Comfortaa, 20px, 500);
+            color: white;
+            background-color: #2E3B81;
+            border: none;
+            border-radius: 8px;
+            min-height: 56px;
+            min-width: 311px;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+    }
+}

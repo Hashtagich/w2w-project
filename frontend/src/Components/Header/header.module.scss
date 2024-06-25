@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+
+.header {
+    @include centered-block(1280px);
+    padding: 24px 0;
+    background-color: #F8F8F8;
+    @include font-style ($Manrope, 18px, 500);
+
+    &__container {
+        width: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        @include centered-block (1280px);
+    }
+
+    &__logo {
+        cursor: pointer;
+    }
+
+    &__navigation {
+        margin-left: -76px;
+        padding: 13px;
+        z-index: 1;
+
+        ul {
+            display: flex;
+            gap: 65px;
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+    &__auth {
+        cursor: pointer;
+
+        img {
+            width: 48%;
+            margin-right: 20px;
+        }
+    }
+}

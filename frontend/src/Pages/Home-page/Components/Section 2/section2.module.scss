@@ -1,0 +1,143 @@
+@import '../../../../mixins.scss';
+@import '../../../../variables.scss';
+
+
+.container {
+    @include centered-block(1280px);
+    display: flex;
+    justify-content: center;
+    gap: 62px;
+    padding: 172px 92px;
+}
+
+.wrapper {
+    position: relative;
+    height: 456px;
+    width: 224px;
+
+    &:nth-child(1) .card .front {
+        background-image: url('~/public/card-1-front.png');
+    }
+
+    &:nth-child(2) .card .front {
+        background-image: url('~/public/card-2-front.png');
+    }
+
+    &:nth-child(3) .card .front {
+        background-image: url('~/public/card-3-front.png');
+    }
+
+    &:nth-child(4) .card .front {
+        background-image: url('~/public/card-4-front.png');
+    }
+
+    &:nth-child(1) .card .back {
+        background-image: url('~/public/card-1-back.png');
+    }
+
+    &:nth-child(2) .card .back {
+        background-image: url('~/public/card-2-back.png');
+    }
+
+    &:nth-child(3) .card .back {
+        background-image: url('~/public/card-3-back.png');
+    }
+
+    &:nth-child(4) .card .back {
+        background-image: url('~/public/card-4-back.png');
+    }
+
+    .card {
+        width: 224px;
+        height: 456px;
+        padding: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 45%;
+        left: 41%;
+        transform: translate(-50%, -50%);
+
+        &:hover {
+            .front {
+                transform: perspective(600px) rotateY(-180deg);
+            }
+
+            .back {
+                transform: perspective(600px) rotateY(0);
+            }
+        }
+
+        .front,
+        .back {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transition: transform 1.3s ease;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 24px;
+            @include font-style($Comfortaa, 20px, 600);
+            line-height: 25.2px;
+            letter-spacing: 0.04em;
+            gap: 20px;
+        }
+
+        .front {
+            background: #47579BE5;
+            color: #FFF;
+            transform: perspective(600px) rotateY(0);
+
+            // &:nth-of-type(1) {
+            //     background-image: url('~/public/card-1-front.png');
+            // }
+
+            // &:nth-of-type(2) {
+            //     background-image: url('~/public/card-2-front.png');
+            // }
+
+            // &:nth-of-type(3) {
+            //     background-image: url('~/public/card-3-front.png');
+            // }
+
+            .ellipse {
+                width: 100%;
+            }
+
+
+        }
+
+
+        // .front:nth-child(1) {
+        //     background-image: url('~/public/card-1-front.png');
+        // }
+
+        // .front:nth-child(2) {
+        //     background-image: url('~/public/card-2-front.png');
+        // }
+
+        // .front:nth-child(3) {
+        //     background-image: url('~/public/card-3-front.png');
+        // }
+
+        // .front:nth-child(4) {
+        //     background-image: url('~/public/card-4-front.png');
+        // }
+
+
+
+        .back {
+            transform: perspective(600px) rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            background: #D9D9D9;
+            color: #000;
+            background-image: url('~/public/card-1-back.png');
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.footer {
+    background-color: #D9D9D999;
+    min-height: 254px;
+    padding-top: 20px;
+    @include font-style($Manrope, 20px, 300);    
+    
+    &__container {
+        @include centered-block (1280px);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;       
+
+        .info1 {   
+            p {
+                margin-bottom: 20px;
+            }
+        }
+
+        .logo {
+            margin-right: 100px; 
+        }
+
+        .info2 {
+            img {
+                margin-right: 11px;
+            }
+            
+            p {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
